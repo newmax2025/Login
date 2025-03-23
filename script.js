@@ -3,7 +3,8 @@ const adminUsers = {
     "visitante095772@gmail.com": "083962",
     "visitante028483@gmail.com": "976294",
     "visitante063774@gmail.com": "967304",
-    "visitante938005@gmail.com": "053952"
+    "visitante938005@gmail.com": "053952",
+     "Paulo": "12345"
 };
 
 // Função para verificar se o login é válido
