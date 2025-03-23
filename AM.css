@@ -36,11 +36,12 @@ body {
   line-height: 60px;
   font-size: 15px;
   color: white;
-  padding-left: 10px;
+  padding-left: 20px;
   box-sizing: border-box;
   border-bottom: 1px solid black;
   border-top: 1px solid rgba(255,255,255,.1);
   transition: .4s;
+  align-items: center;
 }
 ul li:hover a{
   padding-left: 50px;
