@@ -67,13 +67,31 @@
         .grande {
             width: 500px;
             height: 170px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 10px; /* Cantos arredondados */
+            overflow: hidden; /* Garante que a borda não afete a imagem */
         }
+
+        .grande:hover {
+            transform: translateY(-5px) scale(1.05); /* Leve movimento para cima e ampliação */
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.7); /* Borda iluminada verde */
+        }
+
         .pequeno {
             width: 130px;
             height: 110px;
             text-align: center;
             position:relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 10px; /* Cantos arredondados */
+            overflow: hidden; /* Garante que a borda não afete a imagem */
         }
+
+        .pequeno:hover {
+            transform: translateY(-5px) scale(1.05); /* Leve movimento para cima e ampliação */
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.7); /* Borda iluminada verde */
+        }
+
         .card img {
             width: 100%;
             height: 100%;
@@ -327,7 +345,11 @@
                             </div>
                         </footer>
     </section>
-
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <p>Contrate o Plano</p>
+        </div>
+    </div>
     <script>
         // Função para alterar a imagem do banner grande
         function alterarBanner(imagem) {
@@ -356,6 +378,54 @@
                 const walk = (x - startX) * 2;
                 container.scrollLeft = scrollLeft - walk;
             });
+
+            container.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - container.offsetLeft;
+            const walk = (x - startX) * 2;
+            container.scrollLeft = scrollLeft - walk;
+        });
+
+        // Adiciona suporte a toque para mobile
+        container.addEventListener('touchstart', (e) => {
+            isDown = true;
+            startX = e.touches[0].pageX - container.offsetLeft;
+            scrollLeft = container.scrollLeft;
+        });
+
+        container.addEventListener('touchmove', (e) => {
+            if (!isDown) return;
+            const x = e.touches[0].pageX - container.offsetLeft;
+            const walk = (x - startX) * 2;
+            container.scrollLeft = scrollLeft - walk;
+        });
+
+        container.addEventListener('touchend', () => {
+            isDown = false;
+        });
+
+        // Função para abrir o modal
+        function abrirModal() {
+            document.getElementById("modal").style.display = "flex";
+        }
+
+        // Função para fechar o modal
+        function fecharModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        // Adiciona o evento de clique aos cards
+        document.querySelectorAll('.card.pequeno').forEach(card => {
+            card.addEventListener('click', abrirModal);
+        });
+
+        // Fecha o modal se o fundo (fora da área modal) for clicado
+        document.getElementById("modal").addEventListener('click', function(event) {
+            if (event.target === document.getElementById("modal")) {
+                fecharModal();
+            }
+        });
         });
     </script>
 </body>
