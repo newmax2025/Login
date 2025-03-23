@@ -6,7 +6,7 @@ const adminUsers = {
     "visitante938005@gmail.com": "053952",
     "despachantefreedomlcf@gmail.com": "123456",
     "Joaobatistarefrigeracao@gmail.com": "123456",
-     "teste": "12345"
+    "teste": "12345"
 };
 
 // Função para verificar se o login é válido
