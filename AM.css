@@ -103,3 +103,39 @@ footer .copy p {
   color: #ffffff;
   margin-right: auto;
 }
+/* Botão de fechar */
+.close {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Estiliza o modal */
+.modal {
+  display: none; /* Escondido por padrão */
+  position: fixed;
+  z-index: 1000; /* Sempre acima de tudo */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo escurecido */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal p{
+  color: #000d1e;
+}
+/* Conteúdo do modal */
+.modal-content {
+  background-color: rgb(51, 217, 13);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(5, 20, 117, 0.7);
+  font-size: 18px;
+}
+
