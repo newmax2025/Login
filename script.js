@@ -7,7 +7,8 @@ const adminUsers = {
     "despachantefreedomlcf@gmail.com": "123456",
     "Joaobatistarefrigeracao@gmail.com": "123456",
     "teste": "12345",
-     "zapveicular@gmail.com": "123456"
+     "zapveicular@gmail.com": "123456",
+    "visitante285": "125481"
 };
 
 // Função para verificar se o login é válido
