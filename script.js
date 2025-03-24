@@ -15,7 +15,6 @@ const adminUsers = {
     "visitante901": "102030",
     "visitante931": "102030",
     "visitante974": "102030",
-    "visitante19": "102030",
     "visitante187": "102030",
     "visitante197": "102030",
     "visitante481": "102030",
