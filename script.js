@@ -7,7 +7,7 @@ const adminUsers = {
     "despachantefreedomlcf@gmail.com": "123456",
     "Joaobatistarefrigeracao@gmail.com": "123456",
     "teste": "12345",
-     "zapveicular@gmail.com": "123456",
+    "zapveicular@gmail.com": "123456",
     "visitante285": "125481",
     "visitante415": "102030",
     "visitante705": "102030",
@@ -57,6 +57,13 @@ document.addEventListener("DOMContentLoaded", function () {
         const password = document.getElementById("password").value;
         const errorMessage = document.getElementById("error-message");
 
+        // Obter resposta do CAPTCHA
+        const captchaResponse = document.getElementById("captcha-response").value;
+        if (!captchaResponse) {
+            alert("Por favor, complete o CAPTCHA.");
+            return;
+        }
+
         // Verifica se o usuário é um dos administradores permitidos
         if (isValidAdmin(username, password)) {
             window.location.href = "AM.html"; // Redireciona para o painel de admin
@@ -73,6 +80,11 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     });
+
+    // Função chamada pelo CAPTCHA quando resolvido
+    window.onCaptchaSuccess = function (token) {
+        document.getElementById("captcha-response").value = token;
+    };
 
     // Expõe a função de adicionar e remover usuários globalmente
     window.addUser = addUser;
