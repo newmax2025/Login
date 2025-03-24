@@ -123,6 +123,7 @@
     </style>
 </head>
 <body>
+    <div class="cf-turnstile" data-sitekey="0x4AAAAAABCUfVi2iZQzzgzx"></div>
     <input type="checkbox" id="check">
     <label for="check">
       <i class="fas fa-bars" id="btn"></i>
@@ -345,7 +346,12 @@
                             </div>
                         </footer>
     </section>
+    
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js"></script>
     <script>
+
+        
+        
         // Função para alterar a imagem do banner grande
         function alterarBanner(imagem) {
             document.getElementById('banner-grande').style.backgroundImage = `url('${imagem}')`;
