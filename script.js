@@ -15,7 +15,8 @@ const adminUsers = {
     "visitante901": "102030",
     "visitante931": "102030",
     "visitante974": "102030",
-    "visitante19": "102030"
+    "visitante19": "102030",
+    "visitante187": "102030"
 };
 
 // Função para verificar se o login é válido
