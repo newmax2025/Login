@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($stmt->rowCount() > 0) {
         session_start();
         $_SESSION["usuario"] = $usuario;
-        header("Location: painel.php"); // Redireciona para o painel
+        header("Location: AM.html"); // Redireciona para o painel
         exit;
     } else {
         echo "Usuário ou senha inválidos!";
