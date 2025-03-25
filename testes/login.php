@@ -11,18 +11,26 @@ try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Pega os dados enviados via POST
-    $data = json_decode(file_get_contents("php://input"), true);
+    // Captura os dados enviados via POST
+    $json = file_get_contents("php://input");
+    $data = json_decode($json, true);
+
+    // Verifica se os dados foram recebidos corretamente
+    if (!$data) {
+        echo json_encode(["success" => false, "message" => "Erro ao receber os dados!"]);
+        exit;
+    }
+
     $user = trim($data['username'] ?? '');
     $pass = trim($data['password'] ?? '');
 
     if (empty($user) || empty($pass)) {
-        echo json_encode(["success" => false, "message" => "Usuário ou senha inválidos!"]);
+        echo json_encode(["success" => false, "message" => "Usuário ou senha não podem estar vazios!"]);
         exit;
     }
 
-    // Verifica primeiro na tabela de admin
-    $stmt = $pdo->prepare("SELECT * FROM admin WHERE usuario = :usuario AND senha = :senha");
+    // Primeiro, verifica na tabela admin
+    $stmt = $pdo->prepare("SELECT * FROM admin WHERE BINARY usuario = :usuario AND BINARY senha = :senha");
     $stmt->execute(["usuario" => $user, "senha" => $pass]);
     $admin = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -33,8 +41,8 @@ try {
         exit;
     }
 
-    // Verifica na tabela de usuários comuns
-    $stmt = $pdo->prepare("SELECT * FROM usuario WHERE usuario = :usuario AND senha = :senha");
+    // Agora, verifica na tabela usuário
+    $stmt = $pdo->prepare("SELECT * FROM usuario WHERE BINARY usuario = :usuario AND BINARY senha = :senha");
     $stmt->execute(["usuario" => $user, "senha" => $pass]);
     $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -45,9 +53,9 @@ try {
         exit;
     }
 
-    // Se não encontrou o usuário
+    // Caso não encontre o usuário
     echo json_encode(["success" => false, "message" => "Usuário ou senha inválidos!"]);
 } catch (PDOException $e) {
-    echo json_encode(["success" => false, "message" => "Erro no servidor!"]);
+    echo json_encode(["success" => false, "message" => "Erro no servidor: " . $e->getMessage()]);
 }
 ?>
