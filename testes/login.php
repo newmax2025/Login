@@ -13,8 +13,8 @@ try {
 
     // Pega os dados enviados via POST
     $data = json_decode(file_get_contents("php://input"), true);
-    $user = $data['username'] ?? '';
-    $pass = $data['password'] ?? '';
+    $user = trim($data['username'] ?? '');
+    $pass = trim($data['password'] ?? '');
 
     if (empty($user) || empty($pass)) {
         echo json_encode(["success" => false, "message" => "Usuário ou senha inválidos!"]);
