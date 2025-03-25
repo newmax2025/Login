@@ -14,21 +14,6 @@ function removeUser(username) {
     delete users[username];
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    // Lógica de login
-    document.getElementById("loginForm").addEventListener("submit", function(event) {
-        event.preventDefault();
-        const username = document.getElementById("username").value;
-        const password = document.getElementById("password").value;
-        const errorMessage = document.getElementById("error-message");
-        
-        // Verifica se o login é para o admin
-        if (username === userUsername && password === userPassword) {
-            window.location.href = "AM.html";  // Redireciona para o painel de admin
-        }
-    });
-});
-
 // Expõe a função de adicionar usuários para o painel de administração
 window.addUser = addUser;
 window.removeUser = removeUser;
@@ -57,32 +42,31 @@ function removeUser(username) {
     saveUsers(users);
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    // Lógica de login
-    document.getElementById("loginForm").addEventListener("submit", function(event) {
+document.addEventListener("DOMContentLoaded", function () {
+    document
+    .getElementById("loginForm")
+    .addEventListener("submit", function (event) {
         event.preventDefault();
         const username = document.getElementById("username").value;
         const password = document.getElementById("password").value;
         const errorMessage = document.getElementById("error-message");
 
-        // Verifica se o login é para o admin
         if (username === adminUsername && password === adminPassword) {
-            window.location.href = "admin.html";  // Redireciona para o painel de admin
+        window.location.href = "admin.html"; // Redireciona para o painel de admin
+        } else if (username === userUsername && password === userPassword) {
+        window.location.href = "AM.html"; // Redireciona para o painel de usuário comum
+        } else {
+        const users = getUsers();
+        if (users[username] && users[username] === password) {
+          window.location.href = "AM.html"; // Redireciona usuários cadastrados
+        } else {
+            errorMessage.textContent = "Usuário ou senha inválidos!";
+            errorMessage.style.color = "red";
         }
-        // Verifica se o usuário e a senha são válidos
-        else {
-            const users = getUsers();
-            if (users[username] && users[username] === password) {
-                alert("Login bem-sucedido!");
-                window.location.href = "AM.html";  // URL para usuários comuns
-            } else {
-                errorMessage.textContent = "Usuário ou senha inválidos!";
-                errorMessage.style.color = "red";
-            }
         }
     });
 
-    // Expõe a função de adicionar usuários para o painel de administração
+  // Expõe a função de adicionar usuários para o painel de administração
     window.addUser = addUser;
     window.removeUser = removeUser;
 });
