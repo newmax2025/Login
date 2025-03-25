@@ -18,6 +18,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bindParam(':usuario', $usuario);
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    if ($user) {
+    echo "Usuário encontrado no banco!<br>";
+    echo "Senha digitada: " . $senha . "<br>";
+    echo "Senha no banco: " . $user['senha'] . "<br>";
+
+    if (password_verify($senha, $user['senha'])) {
+        echo "Senha correta!";
+    } else {
+        echo "Senha incorreta!";
+    }
+} else {
+    echo "Usuário não encontrado!";
+}
+exit;
+
 
     //Verifica se o usuário existe e se a senha está correta
     if ($user && password_verify($senha, $user['senha'])) {
