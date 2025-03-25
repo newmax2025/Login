@@ -6,22 +6,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $senha = $_POST['password'];
 
     // Busca o usuário no banco
-    $sql = "SELECT * FROM clientes WHERE usuario = :usuario AND senha = :senha";
+    $sql = "SELECT * FROM clientes WHERE usuario = :usuario";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':usuario', $usuario);
-    $stmt->bindParam(':senha', $senha);
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($user) {
+    if ($user && password_verify($senha, $user['senha'])) {
         session_start();
         $_SESSION["usuario"] = $usuario;
-        header("Location: painel.php"); // Redireciona para o painel
+        header("Location: painel.php");
         exit;
     } else {
-        echo "Usuário ou senha inválidos!";
+    echo "Usuário ou senha inválidos!";
     }
-} else {
-    echo "Acesso negado!";
+
+    } else {
+        echo "Acesso negado!";
 }
 ?>
