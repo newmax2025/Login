@@ -6,20 +6,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $senha = $_POST['password'];
     $captchaResponse = $_POST['cf-turnstile-response'];
 
-    // 1️⃣ Verifica se o CAPTCHA foi preenchido
+    //Verifica se o CAPTCHA foi preenchido
     if (empty($captchaResponse)) {
         echo "Erro: CAPTCHA obrigatório!";
         exit;
     }
 
-    // 2️⃣ Busca o usuário no banco
+    //Busca o usuário no banco
     $sql = "SELECT * FROM clientes WHERE usuario = :usuario";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':usuario', $usuario);
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // 3️⃣ Verifica se o usuário existe e se a senha está correta
+    //Verifica se o usuário existe e se a senha está correta
     if ($user && password_verify($senha, $user['senha'])) {
         session_start();
         $_SESSION["usuario"] = $usuario;
