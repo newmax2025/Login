@@ -8,8 +8,8 @@ try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $user = "@admin"; // Troque pelo usuário de teste
-    $pass = "2025";   // Troque pela senha de teste
+    $user = "visitanteteste"; // Troque pelo usuário de teste
+    $pass = "123456";   // Troque pela senha de teste
 
     $stmt = $pdo->prepare("SELECT * FROM admin WHERE usuario = :usuario AND senha = :senha");
     $stmt->execute(["usuario" => $user, "senha" => $pass]);
