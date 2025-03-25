@@ -1,5 +1,5 @@
 <?php
-require 'config.php'; // Importa a conexão com o banco
+require 'config.php'; // Conexão com o banco
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $usuario = $_POST['username'];
@@ -12,17 +12,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
-    // 2️⃣ Verifica se o usuário e senha estão no banco
-    $sql = "SELECT * FROM clientes WHERE usuario = :usuario AND senha = :senha";
+    // 2️⃣ Busca o usuário no banco
+    $sql = "SELECT * FROM clientes WHERE usuario = :usuario";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':usuario', $usuario);
-    $stmt->bindParam(':senha', $senha);
     $stmt->execute();
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($stmt->rowCount() > 0) {
+    // 3️⃣ Verifica se o usuário existe e se a senha está correta
+    if ($user && password_verify($senha, $user['senha'])) {
         session_start();
         $_SESSION["usuario"] = $usuario;
-        header("Location: AM.html"); // Redireciona para o painel
+        header("Location: painel.php"); // Redireciona para o painel
         exit;
     } else {
         echo "Usuário ou senha inválidos!";
