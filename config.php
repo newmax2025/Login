@@ -1,5 +1,5 @@
 <?php
-$host = "mysql.hostinger.com";  // Substitua pelo seu host
+$host = "srv1896.hstgr.io";  // Substitua pelo seu host
 $dbname = "u377990636_DataBase"; // Nome do banco de dados
 $username = "u377990636_Admin";   // Usuário do banco
 $password = "+c4Nrz@H5";         // Senha do banco
