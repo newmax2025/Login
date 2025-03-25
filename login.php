@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($user && password_verify($senha, $user['senha'])) {
         session_start();
         $_SESSION["usuario"] = $usuario;
-        header("Location: painel.php"); // Redireciona para o painel
+        header("Location: AM.html"); // Redireciona para o painel
         exit;
     } else {
         echo "Usuário ou senha inválidos!";
