@@ -41,7 +41,7 @@ try {
     if ($usuario) {
         $_SESSION["user"] = $user;
         $_SESSION["role"] = "user";
-        echo json_encode(["success" => true, "redirect" => "testes\AM.html"]);
+        echo json_encode(["success" => true, "redirect" => "AM.html"]);
         exit;
     }
 
