@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // 2️⃣ Verifica se o usuário e senha estão no banco
-    $sql = "SELECT * FROM admin WHERE usuario = :usuario AND senha = :senha";
+    $sql = "SELECT * FROM clientes WHERE usuario = :usuario AND senha = :senha";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':usuario', $usuario);
     $stmt->bindParam(':senha', $senha);
