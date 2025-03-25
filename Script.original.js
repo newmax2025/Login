@@ -1,6 +1,8 @@
 const users = {};  // Armazenamento dos usuários
 const adminUsername = "@admin";
 const adminPassword = "2025";
+const userUsername = "visitante285";
+const userPassword = "125481";
 
 // Adiciona um usuário ao sistema
 function addUser(username, password) {
@@ -21,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const errorMessage = document.getElementById("error-message");
         
         // Verifica se o login é para o admin
-        if (username === adminUsername && password === adminPassword) {
+        if (username === userUsername && password === userPassword) {
             window.location.href = "AM.html";  // Redireciona para o painel de admin
         }
     });
