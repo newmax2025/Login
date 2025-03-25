@@ -1,19 +1,18 @@
-<?php
-require 'config.php'; // Conexão com o banco
+require 'config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    echo "Dados recebidos: " . $_POST['username'] . " - " . $_POST['password'];
+    $usuario = $_POST['username'];
+    $senha = $_POST['password'];
 
-    // Insere o usuário no banco
     $sql = "INSERT INTO clientes (usuario, senha) VALUES (:usuario, :senha)";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':usuario', $usuario);
     $stmt->bindParam(':senha', $senha);
-
+    
     if ($stmt->execute()) {
         echo "Usuário cadastrado com sucesso!";
     } else {
-        echo "Erro ao cadastrar!";
+        echo "Erro ao cadastrar usuário!";
     }
 }
 ?>
