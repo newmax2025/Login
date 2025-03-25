@@ -2,9 +2,8 @@
 require 'config.php'; // Conexão com o banco
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $usuario = $_POST['usuario'];
-    $senha = $_POST['senha']; // Sem criptografia
- // Senha segura
+    $usuario = $_POST['username'];
+    $senha = $_POST['password']; // Sem criptografia
 
     // Insere o usuário no banco
     $sql = "INSERT INTO clientes (usuario, senha) VALUES (:usuario, :senha)";
