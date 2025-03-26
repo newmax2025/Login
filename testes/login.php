@@ -41,7 +41,7 @@ if ($result->num_rows > 0) {
         $_SESSION["admin"] = $user;
         echo json_encode(["success" => true, "redirect" => "admin.html"]);
     } else {
-        echo json_encode(["success" => false, "message" => "Usuário ou senha inválidos"]);
+        echo json_encode(["success" => false, "message" => "Usuário ou senha inválidos, tente novamente"]);
     }
 }
 
