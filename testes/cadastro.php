@@ -5,10 +5,10 @@ ini_set('display_errors', 1);
 header('Content-Type: application/json');
 
 // Configuração do banco de dados
-$host = "seu_host";
-$dbname = "seu_banco";
-$username = "seu_usuario";
-$password = "sua_senha";
+$host = "mysql.hostinger.com";
+$dbname = "u377990636_DataBase";
+$username = "u377990636_Admin";
+$password = "+c4Nrz@H5";
 
 $conn = new mysqli($host, $username, $password, $dbname);
 
