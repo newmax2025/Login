@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 alert("Login bem-sucedido!");
                 window.location.href = "AM.html";  // URL para usuários comuns
             } else {
-                errorMessage.textContent = "Usuário ou senha inválidos!";
+                errorMessage.textContent = "Usuário ou senha inválidos!, tente novamente";
                 errorMessage.style.color = "red";
             }
         }
