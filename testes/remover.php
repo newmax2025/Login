@@ -13,25 +13,24 @@ if ($conn->connect_error) {
     die(json_encode(["success" => false, "message" => "Erro ao conectar ao banco de dados."]));
 }
 
-// Recebendo os dados
+// Recebe os dados
 $data = json_decode(file_get_contents("php://input"), true);
 $user = $data["username"];
-$pass = password_hash($data["password"], PASSWORD_DEFAULT); // Senha criptografada
 
 // Validação básica
-if (empty($user) || empty($pass)) {
-    die(json_encode(["success" => false, "message" => "Preencha todos os campos!"]));
+if (empty($user)) {
+    die(json_encode(["success" => false, "message" => "Usuário não informado."]));
 }
 
-// Insere no banco de dados
-$sql = "INSERT INTO clientes (usuario, senha) VALUES (?, ?)";
+// Remove do banco de dados
+$sql = "DELETE FROM clientes WHERE usuario = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ss", $user, $pass);
+$stmt->bind_param("s", $user);
 
 if ($stmt->execute()) {
     echo json_encode(["success" => true]);
 } else {
-    echo json_encode(["success" => false, "message" => "Erro ao cadastrar usuário."]);
+    echo json_encode(["success" => false, "message" => "Erro ao remover usuário."]));
 }
 
 $stmt->close();

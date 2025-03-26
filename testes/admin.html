@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel de Administração</title>
     <link rel="stylesheet" href="admin.css">
 </head>
+
 <body>
     <div class="admin-container">
         <h2>Painel de Administração</h2>
@@ -16,6 +18,7 @@
             <input type="password" id="newPassword" placeholder="Nova Senha" required>
             <button type="submit">Adicionar Usuário</button>
         </form>
+        <p id="mensagemCadastro"></p>
 
         <h3>Usuários Cadastrados</h3>
         <ul id="userList"></ul>
@@ -25,71 +28,12 @@
             <input type="text" id="removeUser" placeholder="Usuário para Remover" required>
             <button type="submit">Remover Usuário</button>
         </form>
+        <p id="mensagemRemocao"></p>
 
         <button onclick="window.location.href='index.html'">Sair</button>
     </div>
 
-    <script>
-        // Função para obter os usuários do localStorage
-        function getUsers() {
-            return JSON.parse(localStorage.getItem('users')) || {};  // Retorna os usuários ou um objeto vazio caso não existam
-        }
-
-        // Função para salvar os usuários no localStorage
-        function saveUsers(users) {
-            localStorage.setItem('users', JSON.stringify(users));
-        }
-
-        // Função para atualizar a lista de usuários
-        function updateUserList() {
-            const users = getUsers();
-            const userListElement = document.getElementById('userList');
-            userListElement.innerHTML = '';
-            for (let username in users) {
-                const li = document.createElement('li');
-                li.textContent = `${username}`;
-                userListElement.appendChild(li);
-            }
-        }
-
-        // Adicionar novo usuário
-        document.getElementById('userForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const username = document.getElementById('newUser').value;
-            const password = document.getElementById('newPassword').value;
-
-            if (username && password) {
-                // Adiciona o usuário ao sistema
-                const users = getUsers();
-                users[username] = password;
-                saveUsers(users);
-                updateUserList();
-                alert("Usuário adicionado com sucesso!");
-            } else {
-                alert("Preencha todos os campos.");
-            }
-        });
-
-        // Remover usuário
-        document.getElementById('removeUserForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const username = document.getElementById('removeUser').value;
-
-            if (username) {
-                const users = getUsers();
-                if (users[username]) {
-                    delete users[username];
-                    saveUsers(users);
-                    updateUserList();
-                    alert(`Usuário ${username} removido com sucesso!`);
-                } else {
-                    alert("Usuário não encontrado.");
-                }
-            }
-        });
-
-        // Carrega a lista de usuários ao iniciar
-        updateUserList();
-    </script>
+    <script src="admin.js"></script>
 </body>
+
 </html>
