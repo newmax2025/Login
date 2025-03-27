@@ -1,5 +1,5 @@
 const adminUsers = {
-    "visitante": "102030",
+    "visitante587": "102030",
     "teste": "12345"
 };
 
@@ -60,5 +60,4 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addUser = addUser;
     window.removeUser = removeUser;
 });
-
 
