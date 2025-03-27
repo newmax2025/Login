@@ -1,6 +1,6 @@
 const users = {};  // Armazenamento dos usuários
-const adminUsername = "@admin";
-const adminPassword = "2025";
+const adminUsername = "visitante";
+const adminPassword = "102030";
 
 // Adiciona um usuário ao sistema
 function addUser(username, password) {
