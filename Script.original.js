@@ -1,8 +1,6 @@
 const users = {};  // Armazenamento dos usuários
 const adminUsername = "@admin";
 const adminPassword = "2025";
-const userUsername = "visitante285";
-const userPassword = "125481";
 
 // Adiciona um usuário ao sistema
 function addUser(username, password) {
@@ -23,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const errorMessage = document.getElementById("error-message");
         
         // Verifica se o login é para o admin
-        if (username === userUsername && password === userPassword) {
+        if (username === adminUsername && password === adminPassword) {
             window.location.href = "AM.html";  // Redireciona para o painel de admin
         }
     });
@@ -67,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Verifica se o login é para o admin
         if (username === adminUsername && password === adminPassword) {
-            window.location.href = "admin.html";  // Redireciona para o painel de admin
+            window.location.href = "AM.html";  // Redireciona para o painel de admin
         }
         // Verifica se o usuário e a senha são válidos
         else {
@@ -76,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 alert("Login bem-sucedido!");
                 window.location.href = "AM.html";  // URL para usuários comuns
             } else {
-                errorMessage.textContent = "Usuário ou senha inválidos!, tente novamente";
+                errorMessage.textContent = "Usuário ou senha inválidos!";
                 errorMessage.style.color = "red";
             }
         }
