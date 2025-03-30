@@ -1,4 +1,4 @@
-let captchaValidado = true;
+let captchaValidado = false;
 
 function onCaptchaSuccess() {
   captchaValidado = true;
