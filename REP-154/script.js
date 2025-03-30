@@ -1,64 +1,112 @@
-const adminUsers = {
-    "visitante587": "102030",
-    "teste": "12345"
-};
+let captchaValidado = true;
 
-// Função para verificar se o login é válido
-function isValidAdmin(username, password) {
-    return adminUsers[username] === password;
+function onCaptchaSuccess() {
+  captchaValidado = true;
+  document.getElementById("consultarBtn").disabled = false;
 }
 
-// Função para obter os usuários do localStorage
-function getUsers() {
-    return JSON.parse(localStorage.getItem('users')) || {}; // Retorna os usuários ou um objeto vazio caso não existam
+function formatCPF(input) {
+  let value = input.value.replace(/\D/g, "");
+  value = value.replace(/(\d{3})(\d)/, "$1.$2");
+  value = value.replace(/(\d{3})(\d)/, "$1.$2");
+  value = value.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+  input.value = value;
 }
 
-// Função para salvar os usuários no localStorage
-function saveUsers(users) {
-    localStorage.setItem('users', JSON.stringify(users));
+async function consultarCPF() {
+  const cpf = document.getElementById("cpf").value;
+  if (cpf.length < 14) {
+    document.getElementById("resultado").innerText = "CPF inválido!";
+    return;
+  }
+
+  document.getElementById("resultado").innerText = "Consultando...";
+
+  const TOKEN = "3cece996-29c9-40f7-94ab-198f008c3b17"; // Substitua pelo seu token real
+  const URL = `https://api.dbconsultas.com/api/v1/${TOKEN}/datalinkcpf/${cpf.replace(
+    /\D/g,
+    ""
+  )}`;
+
+  try {
+    const response = await fetch(URL);
+    if (!response.ok) {
+      throw new Error("Erro ao consultar CPF.");
+    }
+
+    const data = await response.json();
+
+    if (!data.data) {
+      throw new Error("Nenhuma informação encontrada para este CPF.");
+    }
+
+    const dados = data.data;
+
+    // Preenche os campos com os dados da API
+    document.getElementById("nome").innerText =
+      dados.dados_basicos.nome || "Não disponível";
+    document.getElementById("cpf_resultado").innerText =
+      formatarCPF(dados.dados_basicos.cpf) || "Não disponível";
+    document.getElementById("safra").innerText =
+      dados.dados_basicos.safra || "Não disponível";
+    document.getElementById("nascimento").innerText =
+      dados.dados_basicos.nascimento || "Não disponível";
+    document.getElementById("nome_mae").innerText =
+      dados.dados_basicos.nome_mae || "Não disponível";
+    document.getElementById("sexo").innerText =
+      dados.dados_basicos.sexo === "M"
+        ? "Masculino"
+        : "Feminino" || "Não disponível";
+    document.getElementById("email").innerText =
+      dados.dados_basicos.email || "Não disponível";
+    document.getElementById("obito").innerText =
+      dados.dados_basicos.obito?.status || "Não disponível";
+    document.getElementById("status_receita").innerText =
+      dados.dados_basicos.status_receita || "Não disponível";
+    document.getElementById("cbo").innerText =
+      dados.dados_basicos.cbo || "Não disponível";
+    document.getElementById("faixa_renda").innerText =
+      dados.dados_basicos.faixa_renda || "Não disponível";
+    document.getElementById("veiculos").innerText =
+      dados.veiculos.length > 0 ? dados.veiculos.join(", ") : "Não disponível";
+    document.getElementById("telefones").innerText =
+      dados.telefones.length > 0
+        ? dados.telefones.join(", ")
+        : "Não disponível";
+    document.getElementById("celulares").innerText =
+      dados.celulares.length > 0
+        ? dados.celulares.join(", ")
+        : "Não disponível";
+
+    // Exibe todos os empregos como uma lista, cada emprego em uma linha
+    const empregos = dados.empregos
+      .map((emplo) => `${emplo.nome_empregador} (${emplo.setor})`)
+      .join("<br>");
+    document.getElementById("empregos").innerHTML =
+      empregos || "Não disponível";
+
+    // Exibe todos os endereços como uma lista, cada endereço em uma linha
+    const enderecos = dados.endereco
+      ? `${dados.endereco.tipo || ""} ${
+          dados.endereco.logradouro || "Não disponível"
+        }, ${dados.endereco.numero || "S/N"}, ${
+          dados.endereco.bairro || "Não disponível"
+        }, ${dados.endereco.cidade || "Não disponível"} - ${
+          dados.endereco.uf || ""
+        }, CEP: ${dados.endereco.cep || "Não disponível"}`
+      : "Não disponível";
+    document.getElementById("enderecos").innerHTML =
+      enderecos || "Não disponível";
+
+    document.getElementById("dados").style.display = "block";
+    document.getElementById(
+      "resultado"
+    ).innerText = `Consulta realizada para o CPF: ${cpf}`;
+  } catch (error) {
+    document.getElementById("resultado").innerText = `Erro: ${error.message}`;
+  }
 }
 
-// Função para adicionar um usuário
-function addUser(username, password) {
-    const users = getUsers();
-    users[username] = password;
-    saveUsers(users);
+function formatarCPF(cpf) {
+  return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
 }
-
-// Função para remover um usuário
-function removeUser(username) {
-    const users = getUsers();
-    delete users[username];
-    saveUsers(users);
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("loginForm").addEventListener("submit", function (event) {
-        event.preventDefault();
-        const username = document.getElementById("username").value;
-        const password = document.getElementById("password").value;
-        const errorMessage = document.getElementById("error-message");
-
-        // Verifica se o usuário é um dos administradores permitidos
-        if (isValidAdmin(username, password)) {
-            window.location.href = "AM.html"; // Redireciona para o painel de admin
-        } 
-        // Verifica se o usuário comum está cadastrado no localStorage
-        else {
-            const users = getUsers();
-            if (users[username] && users[username] === password) {
-                alert("Login bem-sucedido!");
-                window.location.href = "AM.html"; // URL para usuários comuns
-            } else {
-                errorMessage.textContent = "Usuário ou senha inválidos!";
-                errorMessage.style.color = "red";
-            }
-        }
-    });
-
-    // Expõe a função de adicionar e remover usuários globalmente
-    window.addUser = addUser;
-    window.removeUser = removeUser;
-});
-
-
