@@ -4,14 +4,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login New Max Consultas</title>
-    <link rel="stylesheet" href="style.css">
-    <script>
-        window.location.href = "REP-154/index.html";
-    </script>
+    <title>Verificação Cloudflare</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            /* Garante que body possa ocupar a altura total */
+            margin: 0;
+            /* Remove margens padrão */
+            padding: 0;
+            /* Remove preenchimentos padrão */
+        }
+
+        body {
+            display: flex;
+            /* Ativa o Flexbox */
+            flex-direction: column;
+            /* Empilha os itens verticalmente */
+            justify-content: center;
+            /* Centraliza verticalmente */
+            align-items: center;
+            /* Centraliza horizontalmente */
+            min-height: 100vh;
+            /* Garante altura mínima da viewport */
+            text-align: center;
+            /* Centraliza texto dentro dos flex items (como o h1) */
+            font-family: sans-serif;
+            /* Define uma fonte básica */
+        }
+
+        /* Opcional: Adiciona um espaço entre o título e o captcha */
+        .cf-turnstile {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 
 <body>
+
+    <div class="cf-turnstile" data-sitekey="0x4AAAAAABCUfVi2iZQzzgzx" data-callback="onCaptchaSuccess">
+    </div>
+
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <script>
+        // Função de callback chamada quando o captcha é resolvido com sucesso
+        function onCaptchaSuccess(token) {
+            console.log('Verificação bem-sucedida! Token:', token);
+
+        }
+
+        // Armazena o ID do timeout para poder cancelá-lo se necessário
+        const redirectTimer = setTimeout(function () {
+            console.log('Redirecionando por timeout...');
+            window.location.href = '/public/views/login.html';
+        }, 3000);
+
+        function onCaptchaError(errorCode) {
+            console.error('Erro na verificação do Captcha:', errorCode);
+
+        }
+    </script>
 </body>
 
 </html>
