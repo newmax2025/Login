@@ -179,7 +179,7 @@ async function consultarCPF() {
     console.error("Erro ao consultar CPF:", error); // Loga o erro detalhado no console
     resultadoElement.innerText = `Erro: ${error.message}`;
     dadosElement.style.display = "none"; // Esconde a área de dados em caso de erro
-  }finally {
+  } finally {
     consultarBtn.disabled = false; // Reabilita o botão após a requisição
   }
 }

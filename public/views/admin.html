@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel de Administração</title>
-    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="stylesheet" href="../assets/css/admin.css?v=2.0">
+
 </head>
 
 <body>
@@ -30,10 +31,27 @@
         </form>
         <p id="mensagemRemocao"></p>
 
+        <h3>Alterar Status do Usuário</h3>
+        <form id="formAlterarStatus">
+            <label for="username">Nome de usuário:</label>
+            <input type="text" id="username" required>
+        
+            <label for="status">Status:</label>
+            <select id="status" required>
+                <option value="ativo">Ativo</option>
+                <option value="inativo">Inativo</option>
+            </select>
+        
+            <button type="submit">Alterar Status</button>
+        </form>
+        <p id="mensagemStatus"></p>
+
+
+
         <button onclick="window.location.href='index.html'">Sair</button>
     </div>
 
-    <script src="../assets/js/admin.js"></script>
+    <script src="../assets/js/admin.js?v=2.0"></script>
 </body>
 
 </html>
