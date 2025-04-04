@@ -42,8 +42,8 @@
       </form>
       <p id="mensagemCadastro"></p>
 
-      <h3>Usuários Cadastrados</h3>
-      <ul id="userList"></ul>
+      <!--<h3>Usuários Cadastrados</h3>
+      <ul id="userList"></ul>-->
 
       <h3>Remover Usuário</h3>
       <form id="removeUserForm">
