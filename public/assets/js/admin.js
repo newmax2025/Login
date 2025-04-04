@@ -8,9 +8,19 @@ document.addEventListener("DOMContentLoaded", function () {
   const mensagemRemocao = document.getElementById("mensagemRemocao");
   const mensagemStatus = document.getElementById("mensagemStatus");
 
+  const formMudarVendedor = document.getElementById("formMudarVendedor");
+  const mensagemMudarVendedor = document.getElementById(
+    "mensagemMudarVendedor"
+  );
 
   // Verifica se os elementos existem antes de adicionar eventos
-  if (!userForm || !removeUserForm || !statusForm || !userListElement) {
+  if (
+    !userForm ||
+    !removeUserForm ||
+    !statusForm ||
+    !userListElement ||
+    !formMudarVendedor
+  ) {
     console.error(
       "Erro: Um ou mais elementos do formulário não foram encontrados no HTML."
     );
@@ -27,7 +37,59 @@ document.addEventListener("DOMContentLoaded", function () {
   // Atualiza a lista de usuários ao carregar a página
   updateUserList();
 
-  // 📌 Cadastro de novo usuário
+  if (!formMudarVendedor) {
+    console.error("Erro: Formulário 'formMudarVendedor' não encontrado no HTML.");
+    return;
+  }
+
+  formMudarVendedor.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const clienteInput = document.getElementById("clienteNome");
+    const vendedorInput = document.getElementById("novoVendedorId");
+
+    if (!clienteInput || !vendedorInput) {
+      console.error("Erro: Campos 'clienteNome' ou 'novoVendedorId' não encontrados no HTML.");
+      return;
+    }
+
+    const cliente = clienteInput.value.trim();
+    const vendedor_id = vendedorInput.value.trim();
+
+    if (!cliente || !vendedor_id) {
+      alert("Preencha todos os campos!");
+      return;
+    }
+
+    try {
+      const response = await fetch("../backend/mudar_vendedor.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          cliente: cliente,
+          vendedor_id: parseInt(vendedor_id)
+        })
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        mensagemMudarVendedor.textContent = "Vendedor atualizado com sucesso!";
+        mensagemMudarVendedor.style.color = "green";
+      } else {
+        mensagemMudarVendedor.textContent = "Erro: " + result.message;
+        mensagemMudarVendedor.style.color = "red";
+      }
+    } catch (error) {
+      console.error("Erro na requisição:", error);
+      mensagemMudarVendedor.textContent = "Erro ao enviar solicitação.";
+      mensagemMudarVendedor.style.color = "red";
+    }
+  });
+
+
+
+  // Cadastro de novo usuário
   userForm.addEventListener("submit", async function (event) {
     event.preventDefault();
     const username = document.getElementById("newUser").value;
@@ -58,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // 📌 Remover usuário
+  // Remover usuário
   removeUserForm.addEventListener("submit", async function (event) {
     event.preventDefault();
     const username = document.getElementById("removeUser").value;
@@ -88,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // 📌 Alterar Status do Usuário
+  // Alterar Status do Usuário
   statusForm.addEventListener("submit", async function (event) {
     event.preventDefault();
     const username = document.getElementById("username").value;
@@ -111,7 +173,8 @@ document.addEventListener("DOMContentLoaded", function () {
         statusForm.reset();
         updateUserList();
       } else {
-        mensagemStatus.textContent = result.message || "Erro ao alterar status.";
+        mensagemStatus.textContent =
+          result.message || "Erro ao alterar status.";
         mensagemStatus.style.color = "red";
       }
     } catch (error) {
@@ -119,8 +182,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-
-  // 📌 Atualiza a lista de usuários
+  // Atualiza a lista de usuários
   async function updateUserList() {
     userListElement.innerHTML = "<li>Carregando...</li>";
 

@@ -1,10 +1,15 @@
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login New Max Consultas</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css?v=<?php echo md5_file('../assets/css/style.css'); ?>">
 </head>
 <body>
     <div class="login-container">
@@ -14,7 +19,9 @@
             <input type="password" id="password" placeholder="Senha" required>
 
             <!-- Modificação para capturar a resposta do Turnstile -->
-            <div class="cf-turnstile" data-sitekey="0x4AAAAAABCUfVi2iZQzzgzx" data-callback="onCaptchaSuccess">
+            <div id="captcha" class="cf-turnstile" 
+            data-sitekey="0x4AAAAAABCUfVi2iZQzzgzx" 
+            data-callback="onCaptchaSuccess">
             </div>
             
             <input type="hidden" id="captcha-response" name="cf-turnstile-response">
@@ -31,7 +38,6 @@
         }
     </script>
 
-
-    <script src="../assets/js/login.js"></script>
+    <script src="../assets/js/login.js?v=<?php echo md5_file('../assets/js/login.js'); ?>"></script>
 </body>
 </html>

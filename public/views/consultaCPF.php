@@ -5,89 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel de Consulta CPF</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: black;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
+    <link rel="stylesheet" href="../assets/css/consultaCPF.css?v=<?php echo md5_file('../assets/css/consultaCPF.css'); ?>">
+    <script>
+        fetch("../backend/verifica_sessao.php")
+    .then(response => response.json())
+    .then(data => {
+        if (!data.autenticado) {
+            window.location.href = "login.php"; // Redireciona se não estiver autenticado
         }
+    })
+    .catch(error => {
+        console.error("Erro ao verificar sessão:", error);
+        window.location.href = "login.php"; // Opcional: Redireciona em caso de erro
+    });
 
-        .container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: #000d1e;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(3, 255, 11, 0.3);
-            text-align: center;
-            width: 400px;
-            position: relative;
-            gap: 15px;
-        }
-
-        h2 {
-            color: white;
-        }
-
-        .logo-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .logo {
-            max-width: 150px;
-            margin-bottom: 10px;
-        }
-
-        input[type="text"] {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border: 2px solid #1ba924;
-            border-radius: 8px;
-            font-size: 16px;
-            text-align: center;
-        }
-
-        button {
-            background: #00ff22;
-            color: rgb(0, 0, 0);
-            padding: 12px;
-            width: 100%;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 18px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        #resultado {
-            margin-top: 15px;
-            font-size: 16px;
-            font-weight: bold;
-            color: white;
-        }
-
-        .dados {
-            margin-top: 15px;
-            text-align: left;
-            color: white;
-            display: none;
-        }
-
-        .dados span {
-            font-weight: bold;
-        }
-    </style>
+        </script>
 </head>
 
 <body>
@@ -102,7 +34,7 @@
         <!-- Turnstile CAPTCHA -->
         <div class="cf-turnstile" id="captcha" data-sitekey="0x4AAAAAABCUfVi2iZQzzgzx" data-callback="onCaptchaSuccess">
         </div>
-        
+
         <input type="hidden" id="captcha-response" name="cf-turnstile-response">
 
         <p id="resultado"></p>
@@ -128,7 +60,7 @@
     </div>
 
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-    <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/consultaCPF.js?v=<?php echo md5_file('../assets/js/consultaCPF.js'); ?>"></script>
 </body>
 
 </html>

@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Área de Membros</title>
-    <link rel="stylesheet" href="../assets/css/aM.css">
+    <link rel="stylesheet" href="../assets/css/aM.css?v=<?php echo md5_file('../assets/css/aM.css'); ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
     <style>
         body {
             background-color: #111;
@@ -27,18 +28,18 @@
             font-size: 24px;
             background: black;
         }
-        /* Banner grande ajustado para 100% da largura e altura da tela */
-.banner-grande {
-    width: 100%;
-    height: 40vh; /* Altura adaptável ao tamanho da tela */
-    background-image: url('../assets/img/assine o plano premium .jpg'); /* Imagem inicial */
-    background-size: contain; /* Ajusta a imagem sem cortar, mantendo a proporção */
-    background-position: center;
-    transition: background-image 0.5s ease;
-    background-repeat: no-repeat; /* Evita que a imagem se repita */
-    align-self: center;
-    padding: auto;
-}
+            /* Banner grande ajustado para 100% da largura e altura da tela */
+            .banner-grande {
+            width: 100%;
+            height: 40vh; /* Altura adaptável ao tamanho da tela */
+            background-image: url('../assets/img/assine o plano premium .jpg'); /* Imagem inicial */
+            background-size: contain; /* Ajusta a imagem sem cortar, mantendo a proporção */
+            background-position: center;
+            transition: background-image 0.5s ease;
+            background-repeat: no-repeat; /* Evita que a imagem se repita */
+            align-self: center;
+            padding: auto;
+        }
 
         .carousel h2 {
             margin-left: 10px;
@@ -146,6 +147,37 @@
             background-color: #0b03ff;
         }
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        fetch("../backend/get_user_data.php")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Erro ao carregar os dados do usuário");
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log("Dados recebidos:", data); // Para depuração
+
+            if (!data || !data.autenticado) {
+                console.warn("Usuário não autenticado, redirecionando...");
+                window.location.href = "login.php"; 
+                return;
+            }
+
+            // Atualiza os elementos da página com os dados do usuário
+            document.getElementById("revendedor").innerHTML = `Revendedor: ${data.nome}`;
+            document.getElementById("whatsapp").setAttribute("href", data.whatsapp);
+            document.getElementById("status").innerHTML = `Status: ${data.status}`;
+        })
+        .catch(error => {
+            console.error("Erro ao carregar os dados do usuário:", error);
+            window.location.href = "login.php"; 
+        });
+        });
+
+    </script>
+        
 </head>
 <body>
     <input type="checkbox" id="check">
@@ -156,11 +188,11 @@
     <div class="sidebar">
     <header>Menu</header>
     <ul>
-     <li><a href="#"><i class=""></i>Perfil 🔐</a></li>
-     <li><a href="#"><i class=""></i>Revendedor: Max Consultas</a></li>
-     <li><a href="https://w.app/z3fpki"><i class="fa-brands fa-whatsapp"></i>Whatsapp</a></li>
-     <li><a href="#"><i class=""></i>Status: Ativo</a></li>
-     <li><a href="index.html"><i class=""></i>Sair</a></li>
+        <li><a href="#"><i class=""></i>Perfil 🔐</a></li>
+        <li><a href="#" id="revendedor"><i class=""></i>Revendedor: Carregando...</a></li>
+        <li><a href="https://wa.me/" id="whatsapp"><i class="fa-brands fa-whatsapp"></i>Whatsapp</a></li>
+        <li><a href="#" id="status"><i class=""></i>Status: Carregando...</a></li>
+        <a href="../backend/logout.php">Sair</a>
     </ul>
     </div>
     <header>
@@ -187,7 +219,7 @@
     </section>
     <section>
         <section class="carousel" id="favoritos">
-            <h2> Módulos Gratuitos</h2>
+            <h2> Modulos Gratuitos</h2>
             <div class="carousel-container">
                 <div class="card Gratuitos">  
                    <a href="consultaCPF.html"> <img src="../assets/img/CONSULTA CPF MAX.jpg" alt="CRLV (Todos os Estados)"></a> 
@@ -219,7 +251,7 @@
             <div class="modal-content">
                 <p>Contrate o Plano</p>
             </div></section>
-        <h2>Módulos Avançados</h2>
+        <h2>Outros Aplicativos</h2>
         <div class="carousel-container">
             <div class="card pequeno"> 
                 
