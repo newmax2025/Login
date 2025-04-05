@@ -1,43 +1,110 @@
-<?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-?>
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login New Max Consultas</title>
-    <link rel="stylesheet" href="../assets/css/style.css?v=<?php echo md5_file('../assets/css/style.css'); ?>">
-</head>
-<body>
-    <div class="login-container">
-        <img src="../assets/img/New Max Buscas.png" alt="Logo do Cliente" class="logo">
-        <form id="loginForm">
-            <input type="text" id="username" placeholder="Usuário" required>
-            <input type="password" id="password" placeholder="Senha" required>
+body {
+    background-color: #000d1e;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
 
-            <!-- Modificação para capturar a resposta do Turnstile -->
-            <div id="captcha" class="cf-turnstile" 
-            data-sitekey="0x4AAAAAABCUfVi2iZQzzgzx" 
-            data-callback="onCaptchaSuccess">
-            </div>
-            
-            <input type="hidden" id="captcha-response" name="cf-turnstile-response">
+.container {
+    background:white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(42, 242, 20, 0.5);
+    text-align: center;
+    color: white;
+}
 
+.login-container {
+    background: #000d1e;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+}
 
-            <button type="submit">Entrar</button>
-        </form>
-        <p id="error-message" class="error-message"></p>
-    </div>
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-    <script>
-        function onCaptchaSuccess(token) {
-            document.getElementById("captcha-response").value = token;
-        }
-    </script>
+.logo {
+    width: 300%;
+    margin-bottom: 20px;
+}
 
-    <script src="../assets/js/login.js?v=<?php echo md5_file('../assets/js/login.js'); ?>"></script>
-</body>
-</html>
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+}
+.container {
+    background:white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(42, 242, 20, 0.5);
+    text-align: center;
+    color: white;
+}
+.panel {
+    margin-top: 20px;
+}
+input {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 80%;
+    border-radius: 5px;
+    border: none;
+    background: #ffffff;
+    color: rgb(0, 0, 0);
+}
+button {
+    background:rgb(25, 246, 32);
+    color: black;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 85%;
+}
+a {
+    color:rgb(27, 218, 53);
+    text-decoration: none;
+}
+     p {
+    color:rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+img {
+    max-width: 100px;
+    display: block;
+    margin: 0 auto 20px;
+
+}
+
+body {
+background-color:rgb(0, 0, 0);
+}
+
