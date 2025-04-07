@@ -172,7 +172,7 @@
             </div>
             <div class="card Premium"> 
                
-                <img src="../assets/img/CNH_completa_com_Foto.jpg" alt="img/Impressão CNH (Original)a">
+                <img src="../assets/img/CNH_completa_com_foto.jpg" alt="img/Impressão CNH (Original)a">
                 
             </div>
             <div class="card Premium"> 
@@ -397,7 +397,7 @@
                                             
                                             <div class="card pequeno"> 
                                                
-                                                <img src="../assets/img/bacem.jpg" alt="BACEN">
+                                                <img src="../assets/img/bacen.jpg" alt="BACEN">
                                               
                                             </div>
 
