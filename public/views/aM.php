@@ -460,7 +460,7 @@
               
  const banner = document.querySelector('.banner-grande');
   const imagens = [
-    '../assets/img/assine\ o\ plano\ premium\ .jpg',
+    '../assets/img/assine_o_plano_premium.jpg',
     '../assets/img/Banner\ principal\ 1.jpg'
   ];
 
