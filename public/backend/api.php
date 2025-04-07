@@ -1,107 +1,86 @@
 <?php
+session_start();
 header('Content-Type: application/json');
-ob_start();
 
-// Inclui a configuração do banco de dados e outras configurações
-require 'config.php';
+// Verifica autenticação
+if (!isset($_SESSION['usuario_id'])) {
+    http_response_code(401);
+    echo json_encode(['erro' => 'Não autenticado.']);
+    exit;
+}
 
-// Defina a chave usada para buscar o token no seu banco de dados
-define('TOKEN_DB_KEY', 'token_api');
+// Inclui a configuração do banco de dados
+require 'config.php'; // certifique-se de que $conexao (mysqli) está sendo criado corretamente aqui
 
-try {
-    // 1. Receber o CPF do frontend
-    $inputData = json_decode(file_get_contents("php://input"), true);
-
-    if (json_last_error() !== JSON_ERROR_NONE) {
-        throw new InvalidArgumentException("Erro ao decodificar JSON recebido.");
-    }
-
-    if (!isset($inputData['cpf']) || empty(trim($inputData['cpf']))) {
-        throw new InvalidArgumentException("CPF não informado.");
-    }
-
-    $cpfLimpo = preg_replace('/\D/', '', trim($inputData['cpf']));
-    if (strlen($cpfLimpo) !== 11) {
-         throw new InvalidArgumentException("Formato de CPF inválido.");
-    }
-
-    // 2. Buscar o Token da API no banco de dados local
-    $token = null;
-    $sqlToken = "SELECT valor FROM config WHERE chave = ?";
-    $stmtToken = $conexao->prepare($sqlToken);
-    if ($stmtToken === false) {
-        throw new RuntimeException("Erro ao preparar consulta do token: " . $conexao->error);
-    }
-    $chaveToken = TOKEN_DB_KEY; // Usa a constante definida
-    $stmtToken->bind_param("s", $chaveToken);
-    $stmtToken->execute();
-    $resultToken = $stmtToken->get_result();
-
-    if ($rowToken = $resultToken->fetch_assoc()) {
-        $token = $rowToken['valor'];
-    }
-    $stmtToken->close();
-
-    if (empty($token)) {
-        error_log("Token da API não encontrado no banco de dados para a chave: " . TOKEN_DB_KEY);
-        throw new RuntimeException("Configuração interna do servidor incompleta [Token].");
-    }
-
-    // 3. Preparar e fazer a chamada para a API Externa (api.dbconsultas.com)
-    $externalApiUrl = "https://api.dbconsultas.com/api/v1/{$token}/datalinkcpf/{$cpfLimpo}";
-
-    // Usando cURL para a requisição externa (mais robusto)
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $externalApiUrl);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 30);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
-
-    $externalApiResponse = curl_exec($ch);
-    $httpStatusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    $curlError = curl_error($ch);
-    curl_close($ch);
-
-    if ($curlError) {
-        error_log("Erro de cURL ao chamar API externa: " . $curlError);
-        throw new RuntimeException("Erro ao comunicar com o serviço de consulta [cURL].");
-    }
-
-    if ($httpStatusCode >= 400) {
-         $errorData = json_decode($externalApiResponse, true);
-         $externalMessage = isset($errorData['message']) ? $errorData['message'] : "Serviço de consulta retornou erro {$httpStatusCode}.";
-        throw new RuntimeException($externalMessage); // Repassa a mensagem de erro da API externa
-    }
-
-    ob_end_clean();
-    echo $externalApiResponse;
-    exit();
-
-} catch (mysqli_sql_exception $e) {
-    ob_end_clean();
-    error_log("Erro de Banco de Dados (api.php): " . $e->getMessage());
-    echo json_encode(["success" => false, "message" => "Erro interno no servidor [DB]."]);
-
-} catch (InvalidArgumentException $e) {
-    ob_end_clean();
+// Lê e valida o CPF
+$input = json_decode(file_get_contents('php://input'), true);
+if (!isset($input['cpf'])) {
     http_response_code(400);
-    echo json_encode(["success" => false, "message" => $e->getMessage()]);
-
-} catch (RuntimeException $e) {
-     ob_end_clean();
-     http_response_code(500); 
-     error_log("Erro de Runtime (api.php): " . $e->getMessage());
-     echo json_encode(["success" => false, "message" => $e->getMessage()]);
-
-} catch (Exception $e) {
-    ob_end_clean();
-    http_response_code(500); // Erro genérico
-    error_log("Erro Geral (api.php): " . $e->getMessage());
-    echo json_encode(["success" => false, "message" => "Erro interno inesperado no servidor."]);
-
-} finally {
-    if (!empty($conexao) && $conexao instanceof mysqli) {
-    $conexao->close();
+    echo json_encode(['erro' => 'CPF não informado.']);
+    exit;
 }
+
+$cpf = preg_replace('/\D/', '', $input['cpf']);
+if (strlen($cpf) !== 11) {
+    http_response_code(400);
+    echo json_encode(['erro' => 'CPF inválido.']);
+    exit;
 }
+
+// Busca o token no banco de dados
+$token = null;
+$stmt = $conexao->prepare("SELECT valor FROM config WHERE chave = ?");
+$chave = 'token_nova_api';
+$stmt->bind_param("s", $chave);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($row = $result->fetch_assoc()) {
+    $token = $row['valor'];
+}
+$stmt->close();
+
+if (empty($token)) {
+    http_response_code(500);
+    echo json_encode(['erro' => 'Token da API não encontrado no banco de dados.']);
+    exit;
+}
+
+// Consulta à API externa
+$url = "https://consultafacil.pro/api/cpf/{$cpf}?token={$token}";
+$ch = curl_init($url);
+curl_setopt_array($ch, [
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_SSL_VERIFYPEER => true,
+    CURLOPT_USERAGENT => 'Mozilla/5.0',
+    CURLOPT_TIMEOUT => 30
+]);
+
+$response = curl_exec($ch);
+$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+$curlError = curl_error($ch);
+curl_close($ch);
+
+if ($curlError) {
+    http_response_code(500);
+    echo json_encode(['erro' => 'Erro na requisição: ' . $curlError]);
+    exit;
+}
+
+if ($httpCode !== 200) {
+    http_response_code($httpCode);
+    echo json_encode(['erro' => 'Erro na consulta externa.', 'codigo_http' => $httpCode]);
+    exit;
+}
+
+// Decodifica a resposta da API externa
+$data = json_decode($response, true);
+if ($data === null) {
+    http_response_code(500);
+    echo json_encode(['erro' => 'Resposta da API inválida.']);
+    exit;
+}
+
+// Retorna os dados para o frontend
+echo json_encode(['sucesso' => true, 'dados' => $data]);
 ?>
