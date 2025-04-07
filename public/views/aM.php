@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -118,36 +119,42 @@
         <section class="carousel" id="favoritos">
             <h2> Modulos Gratuitos</h2>
             <div class="carousel-container">
-                <div class="card Gratuitos">  
-                   <a href="consultaCPF.php"> <img src="../assets/img/CONSULTA CPF MAX.jpg" alt="CRLV (Todos os Estados)"></a>
+<div class="card Gratuitos">  
+                   <a href="Consulta CPF.html"> <img src="../assets/img/CONSULTA CPF MAX.jpg" alt="CRLV (Todos os Estados)"></a>
                    </div>
-                   <div class="card adicionando" onclick="mostrarBotao(this)">  
+                   <div class="card Gratuitos" onclick="mostrarBotao(this)">  
                     <img src="../assets/img/Consulta Telefone (adicionando).jpg" alt="CRLV (Todos os Estados)">
                     <button class="botao">Sendo Adicionado</button>
                 </div>
-                  <div class="card adicionando" onclick="mostrarBotao(this)">  
+                  <div class="card Gratuitos" onclick="mostrarBotao(this)">  
         <img src="../assets/img/Consulta Email (adicionando).jpg" alt="CRLV (Todos os Estados)">
         <button class="botao">Sendo Adicionado</button>
     </div>
-    <div class="card adicionando" onclick="mostrarBotao(this)">  
+    <div class="card Gratuitos" onclick="mostrarBotao(this)">  
         <img src="../assets/img/Consulta CNPJ (adicionando).jpg" alt="CRLV (Todos os Estados)">
         <button class="botao">Sendo Adicionado</button>
     </div>
-    <div class="card adicionando" onclick="mostrarBotao(this)">  
+    <div class="card Gratuitos" onclick="mostrarBotao(this)">  
         <img src="../assets/img/Consulta Funcionário (adicionando).jpg" alt="CRLV (Todos os Estados)">
         <button class="botao">Sendo Adicionado</button>
     </div>
-    <div class="card adicionando" onclick="mostrarBotao(this)">  
+    <div class="card Gratuitos" onclick="mostrarBotao(this)">  
         <img src="../assets/img/Consulta Placa (adicionando).jpg" alt="CRLV (Todos os Estados)">
         <button class="botao">Sendo Adicionado</button>
     </div>
-    <div class="card adicionando" onclick="mostrarBotao(this)">  
+    <div class="card Gratuitos" onclick="mostrarBotao(this)">  
         <img src="../assets/img/desmascarar Pix (adicionando).jpg" alt="CRLV (Todos os Estados)">
         <button class="botao">Sendo Adicionado</button>
     </div>
-    <div class="card adicionando" onclick="mostrarBotao(this)">  
-        <img src="../assets/img/desmascarar Pix (adicionando).jpg" alt="CRLV (Todos os Estados)">
+    <div class="card Gratuitos" onclick="mostrarBotao(this)">  
+        <img src="../assets/img/Consulta CNPJ (adicionando).jpg" alt="CRLV (Todos os Estados)">
         <button class="botao">Sendo Adicionado</button>
+    </div>
+
+    <div class="card Gratuitos" onclick="mostrarBotao(this)">  
+        <img src="../assets/img/buscar cep.jpg" alt="CRLV (Todos os Estados)">
+        <button class="botao">Sendo Adicionado</button>
+    </div>
     </div>
     </section>
     <section class="carousel2" id="favoritos">
@@ -211,7 +218,7 @@
 
         </div>
         <div class="card pequeno"> 
-           
+           <div class="tarja">Manutenção</div> <!-- Tarja adicionada aqui -->
             <img src="../assets/img/Impressão CNH (Original).jpg" alt="img/Impressão CNH (Original)a">
             
         </div>
@@ -255,13 +262,6 @@
     <img src="../assets/img/Consulta Tracker.jpg" alt="Consulta Tracker">
    
 </div>
-           <div class="card pequeno"> 
-                                       
-     <img src="../assets/img/motorista  de ifood_uber eats.jpg" alt="BACEN">
-                                              
-</div>
- <!-- Adicione mais cards conforme necessário -->
-</div>
         <!-- Adicione mais cards conforme necessário -->
     </div>
     <!-- Adicione mais Colunas conforme necessário -->
@@ -273,7 +273,7 @@
                
             </div>
             <div class="card pequeno"> 
-               
+               <div class="tarja">Manutenção</div> <!-- Tarja adicionada aqui -->
                 <img src="../assets/img/Buscar Modelo de Veículo.jpg" alt="Treino Academia">
                
             </div>
@@ -395,7 +395,7 @@
                                         
                                         </div>
                                         <div class="card pequeno"> 
-                                       
+                                       <div class="tarja">Manutenção</div> <!-- Tarja adicionada aqui -->
                                             <img src="../assets/img/condutor pro.jpg" alt="condutor pro">
                                             </div>
                                             
@@ -412,7 +412,7 @@
                                             </div>
 
                                             <div class="card pequeno"> 
-                                       
+                                       <div class="tarja">Manutenção</div> <!-- Tarja adicionada aqui -->
                                                 <img src="../assets/img/faceMatch.jpg" alt="BACEN">
                                               
                                             </div>
@@ -442,7 +442,7 @@
                                             </div>
 
                                             <div class="card pequeno"> 
-                                       
+                                        <div class="tarja">Manutenção</div> <!-- Tarja adicionada aqui -->
                                                 <img src="../assets/img/motorista  de ifood_uber eats.jpg" alt="BACEN">
                                               
                                             </div>
