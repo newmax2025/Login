@@ -32,7 +32,7 @@
         <button id="consultarBtn" onclick="consultarEmail()" disabled>Consultar</button>
 
         <!-- Turnstile CAPTCHA -->
-        <div class="cf-turnstile" id="captcha" data-sitekey="0x4AAAAAABDPzCDp7OiEAfvh" data-callback="onCaptchaSuccess">
+        <div class="cf-turnstile" id="captcha" data-sitekey="0x4AAAAAABCUfVi2iZQzzgzx" data-callback="onCaptchaSuccess">
         </div>
 
         <input type="hidden" id="captcha-response" name="cf-turnstile-response">

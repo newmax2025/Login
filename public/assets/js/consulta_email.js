@@ -14,7 +14,7 @@ function resetCaptcha() {
     if (captchaContainer) {
       captchaContainer.innerHTML = "";
       turnstile.render("#captcha", {
-        sitekey: "0x4AAAAAABDPzCDp7OiEAfvh",
+        sitekey: "0x4AAAAAABCUfVi2iZQzzgzx",
         callback: onCaptchaSuccess,
       });
     } else {
