@@ -123,7 +123,7 @@
                    <a href="Consulta CPF.html"> <img src="../assets/img/CONSULTA CPF MAX.jpg" alt="CRLV (Todos os Estados)"></a>
                    </div>
                    <div class="card Gratuitos" onclick="mostrarBotao(this)">  
-                    <img src="../assets/img/Consulta Telefone (adicionando).jpg" alt="CRLV (Todos os Estados)">
+                    <img src="../assets/img/Consulta_Telefone.jpg" alt="CRLV (Todos os Estados)">
                     <button class="botao">Sendo Adicionado</button>
                 </div>
                   <div class="card Gratuitos" onclick="mostrarBotao(this)">  
@@ -460,7 +460,7 @@
               
  const banner = document.querySelector('.banner-grande');
   const imagens = [
-    '../assets/img/assine_o_plano_premium.jpg',
+    '../assets/img/assine_o_plano_premiumx.jpg',
     '../assets/img/Banner\ principal\ 1.jpg'
   ];
 
