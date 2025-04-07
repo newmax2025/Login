@@ -70,8 +70,8 @@ function resetCaptcha() {
         if (captchaContainer) {
             captchaContainer. innerHTML = ""; // Remove o CAPTCHA antigo
             turnstile.render("#captcha", {
-                sitekey: "0x4AAAAAABCUfVi2iZQzzgzx",
-                callback: onCaptchaSuccess,
+              sitekey: "0x4AAAAAABCUfVi2iZQzzgzx",
+              callback: onCaptchaSuccess,
             });
         } else {
             console.warn("Elemento CAPTCHA não encontrado!");
