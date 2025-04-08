@@ -135,14 +135,6 @@
         <button class="botao">Sendo Adicionado</button>
     </div>
     <div class="card Gratuitos" onclick="mostrarBotao(this)">  
-        <img src="../assets/img/consulta_funcionarios.jpg" alt="CRLV (Todos os Estados)">
-        <button class="botao">Sendo Adicionado</button>
-    </div>
-    <div class="card Gratuitos" onclick="mostrarBotao(this)">  
-        <img src="../assets/img/desmascarar_pix_(adicionando).jpg" alt="CRLV (Todos os Estados)">
-        <button class="botao">Sendo Adicionado</button>
-    </div>
-    <div class="card Gratuitos" onclick="mostrarBotao(this)">  
         <img src="../assets/img/consulta_placa_(adicionando).jpg" alt="CRLV (Todos os Estados)">
         <button class="botao">Sendo Adicionado</button>
     </div>
@@ -389,6 +381,15 @@
                         </div>
                         <section class="carousel" id="treinos">
                             <div class="carousel-container">
+
+                                  <div class="card Gratuitos" onclick="mostrarBotao(this)">  
+        <img src="../assets/img/consulta_funcionarios.jpg" alt="CRLV (Todos os Estados)">
+        <button class="botao">Sendo Adicionado</button>
+    </div>
+    <div class="card Gratuitos" onclick="mostrarBotao(this)">  
+        <img src="../assets/img/desmascarar_pix_(adicionando).jpg" alt="CRLV (Todos os Estados)">
+        <button class="botao">Sendo Adicionado</button>
+    </div>
 
                                         <div class="card pequeno"> 
                                        <div class="tarja">Manutenção</div> <!-- Tarja adicionada aqui -->
