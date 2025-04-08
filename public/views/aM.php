@@ -127,7 +127,7 @@
                     <button class="botao">Sendo Adicionado</button>
                 </div>
                   <div class="card Gratuitos" onclick="mostrarBotao(this)">  
-        <img src="../assets/img/consulta_EMAIL.jpg" alt="CRLV (Todos os Estados)">
+      <a href="consulta_email.php"><img src="../assets/img/consulta_EMAIL.jpg" alt="CRLV (Todos os Estados)"></a>
         <button class="botao">Sendo Adicionado</button>
     </div>
     <div class="card Gratuitos" onclick="mostrarBotao(this)">  
@@ -148,7 +148,7 @@
     </div>
 
     <div class="card Gratuitos" onclick="mostrarBotao(this)">  
-        <img src="../assets/img/buscar_cep.jpg" alt="CRLV (Todos os Estados)">
+       <a href="consulta_cep.php"> <img src="../assets/img/buscar_cep.jpg" alt="CRLV (Todos os Estados)"></a>
         <button class="botao">Sendo Adicionado</button>
     </div>
     </div>
