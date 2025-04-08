@@ -206,7 +206,7 @@
 
         </div>
         <div class="card pequeno"> 
-           <div class="tarja">Manutenção</div> <!-- Tarja adicionada aqui -->
+           
             <img src="../assets/img/Impressão CNH (Original).jpg" alt="img/Impressão CNH (Original)a">
             
         </div>
@@ -266,7 +266,7 @@
                
             </div>
             <div class="card pequeno"> 
-               <div class="tarja">Manutenção</div> <!-- Tarja adicionada aqui -->
+               
                 <img src="../assets/img/Buscar Modelo de Veículo.jpg" alt="Treino Academia">
                
             </div>
@@ -392,7 +392,7 @@
     </div>
 
                                         <div class="card pequeno"> 
-                                       <div class="tarja">Manutenção</div> <!-- Tarja adicionada aqui -->
+                                       
                                             <img src="../assets/img/condutor pro.jpg" alt="condutor pro">
                                             </div>
                                             
@@ -403,7 +403,7 @@
                                             </div>
 
                                             <div class="card pequeno"> 
-                                       <div class="tarja">Manutenção</div> <!-- Tarja adicionada aqui -->
+                                       
                                                 <img src="../assets/img/faceMatch.jpg" alt="BACEN">
                                               
                                             </div>
@@ -433,7 +433,6 @@
                                             </div>
 
                                             <div class="card pequeno"> 
-                                        <div class="tarja">Manutenção</div> <!-- Tarja adicionada aqui -->
                                                 <img src="../assets/img/motorista_de_ifood_uber_eats.jpg" alt="BACEN">
                                               
                                             </div>
