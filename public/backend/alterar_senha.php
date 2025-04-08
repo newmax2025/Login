@@ -5,12 +5,14 @@ require 'config.php';
 try {
     $data = json_decode(file_get_contents("php://input"), true);
 
-    if (!isset($data["cliente"]) || !isset($data["senha"])) {
+    if (!isset($data["username"]) || !isset($data["novaSenha"])) {
+
         throw new InvalidArgumentException("Campos 'cliente' e 'senha' são obrigatórios.");
     }
 
-    $cliente = trim($data["cliente"]);
-    $senha = trim($data["senha"]);
+    $cliente = trim($data["username"]);
+$senha = trim($data["novaSenha"]);
+
 
     if (empty($cliente) || empty($senha)) {
         echo json_encode(["success" => false, "message" => "Preencha todos os campos!"]);
