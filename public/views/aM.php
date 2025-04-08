@@ -434,7 +434,7 @@
 
                                             <div class="card pequeno"> 
                                         <div class="tarja">Manutenção</div> <!-- Tarja adicionada aqui -->
-                                                <img src="../assets/img/motorista  de ifood_uber eats.jpg" alt="BACEN">
+                                                <img src="../assets/img/motorista_de_ifood_uber_eats.jpg" alt="BACEN">
                                               
                                             </div>
                                             <!-- Adicione mais cards conforme necessário -->
