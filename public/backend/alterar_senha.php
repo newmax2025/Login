@@ -11,7 +11,9 @@ try {
     }
 
     $cliente = trim($data["username"]);
-$senha = trim($data["novaSenha"]);
+    $senha = trim($data["senha"]);
+    $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
+
 
 
     if (empty($cliente) || empty($senha)) {
@@ -29,7 +31,8 @@ $senha = trim($data["novaSenha"]);
         throw new RuntimeException("Erro ao preparar a query: " . $conexao->error);
     }
 
-    $stmt->bind_param("ss", $senha, $cliente);
+    $stmt->bind_param("ss", $senhaHash, $cliente);
+
 
     if ($stmt->execute()) {
         echo json_encode(["success" => true, "message" => "Senha alterada com sucesso!"]);
