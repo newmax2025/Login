@@ -169,7 +169,7 @@
             </div>
             <div class="card Premium"> 
                 
-                <img src="../assets/img/placa_plus_plano_premium.jpg" alt="placa_plus_plano_premium">
+                <img src="../assets/img/CNH_completa_com_foto.jpg" alt="placa_plus_plano_premium">
                 
             </div>
             <div class="card Premium"> 
