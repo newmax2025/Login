@@ -135,7 +135,7 @@
         <button class="botao">Sendo Adicionado</button>
     </div>
     <div class="card Gratuitos" onclick="mostrarBotao(this)">  
-        <img src="../assets/img/consulta_placa_(adicionando).jpg" alt="CRLV (Todos os Estados)">
+        <a href="consulta_cep.php"> <img src="../assets/img/consulta_placa_(adicionando).jpg" alt="CRLV (Todos os Estados)"></a>
         <button class="botao">Sendo Adicionado</button>
     </div>
 
