@@ -207,7 +207,7 @@
         </div>
         <div class="card pequeno"> 
            
-            <img src="../assets/img/Impressão CNH (Original).jpg" alt="img/Impressão CNH (Original)a">
+            <img src="../assets/img/Impressão_CN_(original).jpg" alt="img/Impressão CNH (Original)a">
             
         </div>
         <div class="card pequeno"> 
