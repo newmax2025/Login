@@ -70,8 +70,8 @@ function resetCaptcha() {
         if (captchaContainer) {
             captchaContainer. innerHTML = ""; // Remove o CAPTCHA antigo
             turnstile.render("#captcha", {
-              sitekey: "0x4AAAAAABCUfVi2iZQzzgzx",
-              callback: onCaptchaSuccess,
+                sitekey: "0x4AAAAAABDPzCDp7OiEAfvh",
+                callback: onCaptchaSuccess,
             });
         } else {
             console.warn("Elemento CAPTCHA não encontrado!");
@@ -262,3 +262,5 @@ function formatCPF(input) {
     value = value.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
     input.value = value;
   }
+
+
