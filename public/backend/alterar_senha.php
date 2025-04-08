@@ -11,7 +11,7 @@ try {
     }
 
     $cliente = trim($data["username"]);
-    $senha = trim($data["senha"]);
+    $senha = trim($data["novaSenha"]);
     $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 
 
