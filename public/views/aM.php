@@ -116,11 +116,13 @@
         </div>
     </section>
     <section>
+
+        <!-- 1° FILEIRA DOS GRATUITOS -->
         <section class="carousel" id="favoritos">
             <h2> Modulos Gratuitos</h2>
             <div class="carousel-container">
              <div class="card Gratuitos">  
-                   <a href="consultaCPF.php"> <img src="../assets/img/consulta_CPF_max.jpg" alt="consulta_CPF_max"></a>
+                   <a href="consultaCPF.php"> <img src="../assets/img3D/consulta_CPF_max.jpg" alt="consulta_CPF_max"></a>
                    </div>
                    <div class="card Gratuitos" onclick="mostrarBotao(this)">  
                     <a href="consultaTel.php"> <img src="../assets/img/consulta_telefone_(adicionando).jpg" alt="consulta_telefone"></a>
@@ -131,45 +133,50 @@
         <button class="botao">Sendo Adicionado</button>
     </div>
     <div class="card Gratuitos" onclick="mostrarBotao(this)">  
-         <a href="consultaCNPJ.php"> <img src="../assets/img/consulta_CNPJ_max.jpg" alt="consulta_CNPJ"></a>
+         <a href="consultaCNPJ.php"> <img src="../assets/img3D/consulta_CNPJ_max.jpg" alt="consulta_CNPJ"></a>
         <button class="botao">Sendo Adicionado</button>
     </div>
     <div class="card Gratuitos" onclick="mostrarBotao(this)">  
-        <a href="consulta_placa.php"> <img src="../assets/img/consulta_placa_(adicionando).jpg" alt="consulta_placa"></a>
-        <button class="botao">Sendo Adicionado</button>
-    </div>
-
-    <div class="card Gratuitos" onclick="mostrarBotao(this)">  
-       <a href="consulta_cep.php"> <img src="../assets/img/buscar_cep.jpg" alt="buscar_cep"></a>
+        <a href="consulta_placa.php"> <img src="../assets/img3D/consulta_placa_(adicionando).jpg" alt="consulta_placa"></a>
         <button class="botao">Sendo Adicionado</button>
     </div>
 
     <div class="card Gratuitos" onclick="mostrarBotao(this)">  
-        <a href="consulta_pix.php"> <img src="../assets/img/desmascarar_pix_(adicionando).jpg" alt="desmascarar_pix_(adicionando)"></a>
+       <a href="consulta_cep.php"> <img src="../assets/img3D/buscar_cep.jpg" alt="buscar_cep"></a>
+        <button class="botao">Sendo Adicionado</button>
+    </div>
+
+    <div class="card Gratuitos" onclick="mostrarBotao(this)">  
+        <a href="consulta_pix.php"> <img src="../assets/img3D/desmascarar_pix_(adicionando).jpg" alt="desmascarar_pix_(adicionando)"></a>
          <button class="botao">Sendo Adicionado</button>
            </div>
+        </div>
+
+        <!-- 2° FILEIRA DOS GRATUITOS -->
+           <section class="carousel" id="treinos">
+            <div class="carousel-container">
 
            <div class="card Gratuitos" onclick="mostrarBotao(this)">
             <div class="tarja">Manutenção</div> <!-- Tarja adicionada aqui --> 
-            <img src="../assets/img/pesquisa_por_nome.jpg" alt="pesquisa_por_nome">
+            <img src="../assets/img3D/pesquisa_por_nome.jpg" alt="pesquisa_por_nome">
              <button class="botao">Sendo Adicionado</button>
                </div>
 
                <div class="card Gratuitos" onclick="mostrarBotao(this)">
                 <div class="tarja">Manutenção</div> <!-- Tarja adicionada aqui --> 
-                <img src="../assets/img/buscar_chassi.jpg" alt="pesquisa_por_nome">
+                <img src="../assets/img3D/buscar_chassi.jpg" alt="pesquisa_por_nome">
                  <button class="botao">Sendo Adicionado</button>
                    </div>
 
                    <div class="card Gratuitos" onclick="mostrarBotao(this)">
                     <div class="tarja">Manutenção</div> <!-- Tarja adicionada aqui --> 
-                    <img src="../assets/img/Foto_rj.jpg" alt="pesquisa_por_nome">
+                    <img src="../assets/img3D/Foto_rj.jpg" alt="pesquisa_por_nome">
                      <button class="botao">Sendo Adicionado</button>
                        </div>
 
                        <div class="card Gratuitos" onclick="mostrarBotao(this)">
                         <div class="tarja">Manutenção</div> <!-- Tarja adicionada aqui -->
-                        <img src="../assets/img/Foto_sp.png" alt="pesquisa_por_nome">
+                        <img src="../assets/img3D/Foto_sp.jpg" alt="pesquisa_por_nome">
                          <button class="botao">Sendo Adicionado</button>
                            </div>
     </div>
@@ -188,36 +195,36 @@
         <div class="carousel-container">
             <div class="card Premium"> 
                 
-                <img src="../assets/img/consulta_credi_link.jpg" alt="consulta_credi_link">
+                <img src="../assets/img3D/consulta_credi_link.jpg" alt="consulta_credi_link">
     
             </div>
             <div class="card Premium"> 
-               
-                <img src="../assets/img/CNH_completa_com_foto.jpg" alt="CNH_completa_com_foto">
+
+                 <img src="../assets/img3D/CNH_completa_com_foto.jpg" alt="CNH_completa_com_foto">
                 
             </div>
             <div class="card Premium"> 
                 
-                <img src="../assets/img/placaplus_plano_premium.jpg" alt="placa_plus_plano_premium">
+                <img src="../assets/img3D/placaplus_premium.jpg" alt="placa_plus_plano_premium">
                 
             </div>
             <div class="card Premium"> 
                
-                <img src="../assets/img/consulta_detran_pro.jpg" alt="consulta_detran_pro.jpg">
+                <img src="../assets/img3D/consulta_detran_pro.jpg" alt="consulta_detran_pro.jpg">
                 
             </div>
             <div class="card Premium"> 
                
-                <img src="../assets/img/despachante_condutor.jpg" alt="despachante_condutor">
+                <img src="../assets/img3D/despachante_condutor.jpg" alt="despachante_condutor">
                 
             </div>
             <div class="card Premium"> 
                
-                <img src="../assets/img/despachante_veicular.jpg" alt="despachante_veicular">
+                <img src="../assets/img3D/despachante_veicular.jpg" alt="despachante_veicular">
                 
             </div> <div class="card Premium"> 
                
-                <img src="../assets/img/consulta_radar_de_veiculos.jpg" alt="consulta_radar_de_veiculos">
+                <img src="../assets/img3D/consulta_radar_de_veiculos.jpg" alt="consulta_radar_de_veiculos">
 
             </div>
             <!-- Adicione mais cards conforme necessário -->
