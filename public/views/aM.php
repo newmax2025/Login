@@ -153,6 +153,10 @@
             <img src="../assets/img/pesquisa_por_nome.jpg" alt="pesquisa_por_nome">
              <button class="botao">Sendo Adicionado</button>
                </div>
+               <div class="card Gratuitos" onclick="mostrarBotao(this)">  
+                <img src="../assets/img/buscar_chassi.jpg" alt="pesquisa_por_nome">
+                 <button class="botao">Sendo Adicionado</button>
+                   </div>
     </div>
     </section>
     <section class="carousel2" id="favoritos">
