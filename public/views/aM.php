@@ -248,21 +248,26 @@
             
             <img src="../assets/img/consulta_receita_federal.jpg" alt="consulta_receita_federal">
            
-        </div>
+                            </div>
 
-<div class="card pequeno"> 
+                            <div class="card pequeno"> 
    
-    <img src="../assets/img/consulta_cadsus.jpg" alt="consulta_cadsus">
-</div>
-<div class="card pequeno"> 
+                            <img src="../assets/img/consulta_cadsus.jpg" alt="consulta_cadsus">
+                          </div>
+                            <div class="card pequeno"> 
     
-    <img src="../assets/img/consulta_tracker.jpg" alt="consulta_tracker">
+                              <img src="../assets/img/consulta_tracker.jpg" alt="consulta_tracker">
    
-</div>
-        <div class="card pequeno"> 
+                               </div>
+                            <div class="card pequeno"> 
                                 
                                 <img src="../assets/img/consultar_FGTS.jpg" alt="consultar_FGTS">
                                
+                            </div>
+                            <div class="card pequeno"> 
+                                               
+                                <img src="../assets/img/bacen.jpg" alt="bacen">
+                              
                             </div>
         <!-- Adicione mais cards conforme necessário -->
     </div>
@@ -399,12 +404,6 @@
                         <!-- 4° FILEIRA DOS ASSINANTES -->
                         <section class="carousel" id="treinos">
                             <div class="carousel-container">
-       
-                                            <div class="card pequeno"> 
-                                               
-                                                <img src="../assets/img/bacen.jpg" alt="bacen">
-                                              
-                                            </div>
 
                                             <div class="card pequeno"> 
                                        
