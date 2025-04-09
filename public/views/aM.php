@@ -120,29 +120,39 @@
             <h2> Modulos Gratuitos</h2>
             <div class="carousel-container">
              <div class="card Gratuitos">  
-                   <a href="consultaCPF.php"> <img src="../assets/img/consulta_CPF_max.jpg" alt="CRLV (Todos os Estados)"></a>
+                   <a href="consultaCPF.php"> <img src="../assets/img/consulta_CPF_max.jpg" alt="consulta_CPF_max"></a>
                    </div>
                    <div class="card Gratuitos" onclick="mostrarBotao(this)">  
-                    <a href="consultaTel.php"> <img src="../assets/img/consulta_telefone_(adicionando).jpg" alt="CRLV (Todos os Estados)"></a>
+                    <a href="consultaTel.php"> <img src="../assets/img/consulta_telefone_(adicionando).jpg" alt="consulta_telefone"></a>
                     <button class="botao">Sendo Adicionado</button>
                 </div>
                   <div class="card Gratuitos" onclick="mostrarBotao(this)">  
-      <a href="consulta_email.php"><img src="../assets/img/consulta_EMAIL.jpg" alt="CRLV (Todos os Estados)"></a>
+      <a href="consulta_email.php"><img src="../assets/img/consulta_EMAIL.jpg" alt="consulta_EMAIL"></a>
         <button class="botao">Sendo Adicionado</button>
     </div>
     <div class="card Gratuitos" onclick="mostrarBotao(this)">  
-         <a href="consultaCNPJ.php"> <img src="../assets/img/consulta_CNPJ_max.jpg" alt="CRLV (Todos os Estados)"></a>
+         <a href="consultaCNPJ.php"> <img src="../assets/img/consulta_CNPJ_max.jpg" alt="consulta_CNPJ"></a>
         <button class="botao">Sendo Adicionado</button>
     </div>
     <div class="card Gratuitos" onclick="mostrarBotao(this)">  
-        <a href="consulta_placa.php"> <img src="../assets/img/consulta_placa_(adicionando).jpg" alt="CRLV (Todos os Estados)"></a>
+        <a href="consulta_placa.php"> <img src="../assets/img/consulta_placa_(adicionando).jpg" alt="consulta_placa"></a>
         <button class="botao">Sendo Adicionado</button>
     </div>
 
     <div class="card Gratuitos" onclick="mostrarBotao(this)">  
-       <a href="consulta_cep.php"> <img src="../assets/img/buscar_cep.jpg" alt="CRLV (Todos os Estados)"></a>
+       <a href="consulta_cep.php"> <img src="../assets/img/buscar_cep.jpg" alt="buscar_cep"></a>
         <button class="botao">Sendo Adicionado</button>
     </div>
+
+    <div class="card Gratuitos" onclick="mostrarBotao(this)">  
+        <img src="../assets/img/desmascarar_pix_(adicionando).jpg" alt="desmascarar_pix_(adicionando)">
+         <button class="botao">Sendo Adicionado</button>
+           </div>
+
+           <div class="card Gratuitos" onclick="mostrarBotao(this)">  
+            <img src="../assets/img/pesquisa_por_nome.jpg" alt="pesquisa_por_nome">
+             <button class="botao">Sendo Adicionado</button>
+               </div>
     </div>
     </section>
     <section class="carousel2" id="favoritos">
@@ -199,8 +209,8 @@
     <section class="carousel" id="favoritos">
 
 
-        <!-- 1° FILEIRA DOS AVANÇADOS -->
-    <h2>Modulos Avançados</h2>
+        <!-- 1° FILEIRA DOS ASSINANTES -->
+    <h2>Modulos Assinantes</h2>
     <div class="carousel-container">
         <div class="card pequeno"> 
             
@@ -213,11 +223,6 @@
             <img src="../assets/img/consulta_SERASA.jpg" alt="consulta_SERASA.jpg">
             
         </div>
-
-        <div class="card Gratuitos" onclick="mostrarBotao(this)">  
-            <img src="../assets/img/desmascarar_pix_(adicionando).jpg" alt="desmascarar_pix_(adicionando)">
-             <button class="botao">Sendo Adicionado</button>
-               </div>
 
         <div class="card pequeno"> 
            
@@ -263,7 +268,7 @@
     </div>
     <!-- Adicione mais Colunas conforme necessário -->
 
-    <!-- 2° FILEIRA DOS AVANÇADOS -->
+    <!-- 2° FILEIRA DOS ASSINANTES -->
         <section class="carousel" id="treinos">
         <div class="carousel-container">
             <div class="card pequeno"> 
@@ -328,7 +333,7 @@
         </div>
 
 
-        <!-- 3° FILEIRA DOS AVANÇADOS -->
+         <!-- 3° FILEIRA DOS ASSINANTES -->
         <section class="carousel" id="treinos">
             <div class="carousel-container">
 
@@ -391,7 +396,7 @@
                                     </div>
 
 
-                        <!-- 4° FILEIRA DOS AVANÇADOS -->
+                        <!-- 4° FILEIRA DOS ASSINANTES -->
                         <section class="carousel" id="treinos">
                             <div class="carousel-container">
        
@@ -410,12 +415,6 @@
                                             <div class="card pequeno"> 
                                        
                                                 <img src="../assets/img/buscar_parentes.jpg" alt="buscar_parentes">
-                                              
-                                            </div>
-
-                                            <div class="card pequeno"> 
-                                               
-                                                <img src="../assets/img/pesquisa_por_nome.jpg" alt="pesquisa_por_nomeN">
                                               
                                             </div>
 
