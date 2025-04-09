@@ -32,21 +32,20 @@
         <button id="consultarBtn" onclick="consultarCPF()" disabled>Consultar</button>
 
         <!-- Turnstile CAPTCHA -->
-        <div class="cf-turnstile" id="captcha" data-sitekey="0x4AAAAAABCUfVi2iZQzzgzx" data-callback="onCaptchaSuccess">
-        </div>
-
+        <div class="cf-turnstile" id="captcha" data-sitekey="0x4AAAAAABCUfVi2iZQzzgzx" data-callback="onCaptchaSuccess"></div>
         <input type="hidden" id="captcha-response" name="cf-turnstile-response">
 
         <p id="resultado"></p>
 
         <div id="dados" class="dados" style="display: none;"></div>
-
-    </div>
-
-     <div id="dados" class="dados" style="display: none;">
-            <!-- Botão para baixar PDF -->
-            <button id="baixarPDFBtn" onclick="baixarPDF()" style="margin-top: 15px;">Baixar PDF</button>
+        
+        <!-- Botões de ação -->
+        <div id="acoes" style="display: none; margin-top: 20px;">
+            <button onclick="copiarDados()">Copiar Dados</button>
+            <button style="margin-top: 20px;" onclick="baixarPDF()">Baixar em PDF</button>
+            <button style="margin-top: 20px;" onclick="baixarTXT()">Baixar em TXT</button>
         </div>
+
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
