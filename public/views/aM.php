@@ -122,7 +122,7 @@
             <h2> Modulos Gratuitos</h2>
             <div class="carousel-container">
              <div class="card Gratuitos">  
-                   <a href="consultas/consulta_cpf.php"> <img src="../assets/img3D/consulta_cpf_max.jpg" alt="consulta_cpf_max"></a>
+                   <a href="consultas/consulta_cpf.php"> <img src="../assets/img3D/consulta_CPF_max.jpg" alt="consulta_CPF_max"></a>
                    </div>
                    <div class="card Gratuitos" onclick="mostrarBotao(this)">  
                     <a href="consultas/consulta_tel.php"> <img src="../assets/img/consulta_telefone_(adicionando).jpg" alt="consulta_telefone"></a>
@@ -133,7 +133,7 @@
         <button class="botao">Sendo Adicionado</button>
     </div>
     <div class="card Gratuitos" onclick="mostrarBotao(this)">  
-         <a href="consultas/consulta_cnpj.php"> <img src="../assets/img3D/consulta_cnpj.jpg" alt="consulta_cnpj"></a>
+         <a href="consultas/consulta_cnpj.php"> <img src="../assets/img3D/consulta_CNPJ_max.jpg" alt="consulta_CNPJ"></a>
         <button class="botao">Sendo Adicionado</button>
     </div>
     <div class="card Gratuitos" onclick="mostrarBotao(this)">  
@@ -169,13 +169,13 @@
 
                    <div class="card Gratuitos" onclick="mostrarBotao(this)">
                     <div class="tarja">Manutenção</div> <!-- Tarja adicionada aqui --> 
-                    <img src="../assets/img3D/foto_rj.jpg" alt="pesquisa_por_nome">
+                    <img src="../assets/img3D/Foto_rj.jpg" alt="pesquisa_por_nome">
                      <button class="botao">Sendo Adicionado</button>
                        </div>
 
                        <div class="card Gratuitos" onclick="mostrarBotao(this)">
                         <div class="tarja">Manutenção</div> <!-- Tarja adicionada aqui -->
-                        <img src="../assets/img3D/foto_sp.jpg" alt="pesquisa_por_nome">
+                        <img src="../assets/img3D/Foto_sp.jpg" alt="pesquisa_por_nome">
                          <button class="botao">Sendo Adicionado</button>
                            </div>
     </div>
@@ -199,7 +199,7 @@
             </div>
             <div class="card Premium"> 
 
-                 <img src="../assets/img3D/cnh_completa_com_foto.jpg" alt="CNH_completa_com_foto">
+                 <img src="../assets/img3D/CNH_completa_com_foto.jpg" alt="CNH_completa_com_foto">
                 
             </div>
             <div class="card Premium"> 
@@ -384,7 +384,7 @@
                 </div>
                 <div class="card pequeno"> 
                   
-                    <img src="../assets/img/crlv_+código.jpg" alt="CRV_+código">
+                    <img src="../assets/img/CRV_+código.jpg" alt="CRV_+código">
                    
                 </div>
 
