@@ -10,23 +10,22 @@ if (!isset($_SESSION['usuario_id'])) {
 }
 
 // Inclui a configuração do banco de dados
-require 'config.php';
+require '../config.php'; // certifique-se de que $conexao (mysqli) está sendo criado corretamente aqui
 
-// Lê e valida a placa
+// Lê e valida o CPF
 $input = json_decode(file_get_contents('php://input'), true);
-if (!isset($input['placa'])) {
+if (!isset($input['cpf'])) {
     http_response_code(400);
-    echo json_encode(['erro' => 'Placa não informado.']);
+    echo json_encode(['erro' => 'CPF não informado.']);
     exit;
 }
 
-$placa = strtoupper(preg_replace('/[^A-Z0-9]/i', '', $input['placa']));
-if (strlen($placa) !== 7) {
+$cpf = preg_replace('/\D/', '', $input['cpf']);
+if (strlen($cpf) !== 11) {
     http_response_code(400);
-    echo json_encode(['erro' => 'Placa inválido.']);
+    echo json_encode(['erro' => 'CPF inválido.']);
     exit;
 }
-
 
 // Busca o token no banco de dados
 $token = null;
@@ -48,7 +47,7 @@ if (empty($token)) {
 }
 
 // Consulta à API externa
-$url = "https://consultafacil.pro/api/plate/{$placa}?token={$token}";
+$url = "https://consultafacil.pro/api/cpf/{$cpf}?token={$token}";
 $ch = curl_init($url);
 curl_setopt_array($ch, [
     CURLOPT_RETURNTRANSFER => true,
@@ -83,6 +82,5 @@ if ($data === null) {
 }
 
 // Retorna os dados para o frontend
-echo json_encode(['sucesso' => true, 'dados' => [$data]]);
-
+echo json_encode(['sucesso' => true, 'dados' => $data]);
 ?>

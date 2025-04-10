@@ -10,22 +10,17 @@ if (!isset($_SESSION['usuario_id'])) {
 }
 
 // Inclui a configuração do banco de dados
-require 'config.php';
+require '../config.php';
 
-// Lê e valida o cnpj
+// Lê e valida o email
 $input = json_decode(file_get_contents('php://input'), true);
-if (!isset($input['cnpj'])) {
+if (!isset($input['email'])) {
     http_response_code(400);
-    echo json_encode(['erro' => 'CNPJ não informado.']);
+    echo json_encode(['erro' => 'Email não informado.']);
     exit;
 }
 
-$cnpj = preg_replace('/\D/', '', $input['cnpj']);
-if (strlen($cnpj) !== 14) {
-    http_response_code(400);
-    echo json_encode(['erro' => 'CNPJ inválido.']);
-    exit;
-}
+$email = trim($input['email']); // Limpa espaços em branco, mas mantém o email intacto
 
 // Busca o token no banco de dados
 $token = null;
@@ -47,7 +42,7 @@ if (empty($token)) {
 }
 
 // Consulta à API externa
-$url = "https://consultafacil.pro/api/cnpj/{$cnpj}?token={$token}";
+$url = "https://consultafacil.pro/api/email/{$email}?token={$token}";
 $ch = curl_init($url);
 curl_setopt_array($ch, [
     CURLOPT_RETURNTRANSFER => true,

@@ -10,20 +10,20 @@ if (!isset($_SESSION['usuario_id'])) {
 }
 
 // Inclui a configuração do banco de dados
-require 'config.php';
+require '../config.php';
 
-// Lê e valida o cep
+// Lê e valida o cnpj
 $input = json_decode(file_get_contents('php://input'), true);
-if (!isset($input['cep'])) {
+if (!isset($input['cnpj'])) {
     http_response_code(400);
-    echo json_encode(['erro' => 'Cep não informado.']);
+    echo json_encode(['erro' => 'CNPJ não informado.']);
     exit;
 }
 
-$cep = preg_replace('/\D/', '', $input['cep']);
-if (strlen($cep) !== 8) {
+$cnpj = preg_replace('/\D/', '', $input['cnpj']);
+if (strlen($cnpj) !== 14) {
     http_response_code(400);
-    echo json_encode(['erro' => 'Cep inválido.']);
+    echo json_encode(['erro' => 'CNPJ inválido.']);
     exit;
 }
 
@@ -47,7 +47,7 @@ if (empty($token)) {
 }
 
 // Consulta à API externa
-$url = "https://consultafacil.pro/api/cep/{$cep}?token={$token}";
+$url = "https://consultafacil.pro/api/cnpj/{$cnpj}?token={$token}";
 $ch = curl_init($url);
 curl_setopt_array($ch, [
     CURLOPT_RETURNTRANSFER => true,

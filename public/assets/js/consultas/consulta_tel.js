@@ -6,13 +6,13 @@ function onCaptchaSuccess() {
 }
 
 function resetCaptcha() {
-  captchaValidado = false;
-  document.getElementById("consultarBtn").disabled = true;
+  captchaValidado = false; // Reseta a validação do CAPTCHA
+  document.getElementById("consultarBtn").disabled = true; // Desativa o botão
 
   setTimeout(() => {
     const captchaContainer = document.getElementById("captcha");
     if (captchaContainer) {
-      captchaContainer.innerHTML = "";
+      captchaContainer.innerHTML = ""; // Remove o CAPTCHA antigo
       turnstile.render("#captcha", {
         sitekey: "0x4AAAAAABCUfVi2iZQzzgzx",
         callback: onCaptchaSuccess,
@@ -20,7 +20,7 @@ function resetCaptcha() {
     } else {
       console.warn("Elemento CAPTCHA não encontrado!");
     }
-  }, 500);
+  }, 500); // Aguarda 500ms antes de recriar o CAPTCHA
 }
 
 function exibirCampo(label, valor) {
@@ -35,7 +35,7 @@ function exibirCampo(label, valor) {
   return `<p><strong>${label}:</strong> ${valor}</p>`;
 }
 
-function consultarCep() {
+function consultarTel() {
   if (!captchaValidado) {
     document.getElementById("resultado").innerText =
       "Por favor, resolva o CAPTCHA.";
@@ -45,13 +45,13 @@ function consultarCep() {
   const consultarBtn = document.getElementById("consultarBtn");
   consultarBtn.disabled = true;
 
-  const cepInput = document.getElementById("cep");
-  const cep = cepInput.value;
+  const telInput = document.getElementById("tel");
+  const tel = telInput.value;
   const resultadoElement = document.getElementById("resultado");
   const dadosElement = document.getElementById("dados");
 
-  if (cep.length < 8) {
-    resultadoElement.innerText = "CEP inválido!";
+  if (tel.length < 12) {
+    resultadoElement.innerText = "Telefone inválido!";
     consultarBtn.disabled = false;
     return;
   }
@@ -59,13 +59,13 @@ function consultarCep() {
   resultadoElement.innerText = "Consultando...";
   dadosElement.style.display = "none";
 
-  const localApiUrl = "../../backend/api_cep.php";
-  const cepLimpo = cep.replace(/\D/g, "");
+  const localApiUrl = "../../backend/consultas/api_tel.php";
+  const telLimpo = tel.replace(/\D/g, "");
 
   fetch(localApiUrl, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ cep: cepLimpo }),
+    body: JSON.stringify({ tel: telLimpo }),
   })
     .then((response) => {
       if (!response.ok) {
@@ -74,42 +74,41 @@ function consultarCep() {
       return response.json();
     })
     .then((data) => {
-      if (
-        !data.sucesso ||
-        !Array.isArray(data.dados) ||
-        data.dados.length === 0
-      ) {
-        throw new Error("Nenhuma informação encontrada para este CEP.");
+      if (data.erro) {
+        throw new Error(data.erro);
+      }
+
+      if (!data.sucesso || !Array.isArray(data.dados)) {
+        throw new Error("Nenhuma informação encontrada para este telefone.");
       }
 
       let html = `<h3>Resultados encontrados: ${data.dados.length}</h3>`;
 
       data.dados.forEach((pessoa, index) => {
-        const endereco = pessoa.endereco || {};
+        const endereco = pessoa.address || {};
+
         html += `<div style="margin-bottom: 16px; border-bottom: 1px solid #ccc; padding-bottom: 8px;">
-      <strong>Resultado ${index + 1}</strong><br>
-      ${exibirCampo("Nome", pessoa.nome)}
-      ${exibirCampo("CPF", pessoa.cpf)}
-      ${exibirCampo("Nome da Mãe", pessoa.mae)}
-      <br><strong>Endereço:</strong><br>
-      ${exibirCampo("Rua", endereco.logradouro)}
-      ${exibirCampo("Número", endereco.numero)}
-      ${exibirCampo("Complemento", endereco.complemento)}
-      ${exibirCampo("Bairro", endereco.bairro)}
-      ${exibirCampo("CEP", endereco.cep)}
-      ${exibirCampo("Cidade", endereco.cidade)}
-      ${exibirCampo("Estado", endereco.estado)}
-    </div>`;
+          <strong>Resultado ${index + 1}</strong><br>
+          ${exibirCampo("Nome", pessoa.name)}
+          ${exibirCampo("CPF", pessoa.document)}
+          ${exibirCampo("Telefone", pessoa.phone)}
+          <br><strong>Endereço:</strong><br>
+          ${exibirCampo("Rua", endereco.street)}
+          ${exibirCampo("Número", endereco.number)}
+          ${exibirCampo("Bairro", endereco.neighborhood)}
+          ${exibirCampo("CEP", endereco.zip_code)}
+          ${exibirCampo("Cidade", endereco.city)}
+          ${exibirCampo("Estado", endereco.state)}
+        </div>`;
       });
 
       dadosElement.innerHTML = html;
       dadosElement.style.display = "block";
-      resultadoElement.innerText = `Consulta realizada para o CEP: ${cep}`;
+      resultadoElement.innerText = `Consulta realizada para o telefone: ${tel}`;
       document.getElementById("acoes").style.display = "block";
     })
-
     .catch((error) => {
-      console.error("Erro ao consultar CEP:", error);
+      console.error("Erro ao consultar telefone:", error);
       resultadoElement.innerText = `Erro: ${error.message}`;
       dadosElement.style.display = "none";
     })
@@ -119,13 +118,16 @@ function consultarCep() {
     });
 }
 
-function formatarCep(cep) {
-  const cepLimpo = cep.replace(/\D/g, "");
-  return cepLimpo.replace(/(\d{5})(\d{3})/, "$1-$2");
+
+function formatarTelefone(tel) {
+  const telLimpo = tel.replace(/\D/g, "");
+  return telLimpo.replace(/(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
 }
 
-function formatCep(input) {
+function formatTel(input) {
   let value = input.value.replace(/\D/g, "");
+  value = value.replace(/^(\d{2})(\d)/g, "($1) $2");
   value = value.replace(/(\d{5})(\d)/, "$1-$2");
+
   input.value = value;
 }

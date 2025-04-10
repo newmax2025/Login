@@ -10,22 +10,27 @@ if (!isset($_SESSION['usuario_id'])) {
 }
 
 // Inclui a configuração do banco de dados
-require 'config.php';
+require '../config.php';
 
-// Lê e valida o nome
+// Lê e valida o telefone
 $input = json_decode(file_get_contents('php://input'), true);
-if (!isset($input['nome'])) {
+if (!isset($input['tel'])) {
     http_response_code(400);
-    echo json_encode(['erro' => 'Nome não informado.']);
+    echo json_encode(['erro' => 'Telefone não informado.']);
     exit;
 }
 
-$nome = trim($input['nome']);
+$tel = preg_replace('/\D/', '', $input['tel']);
+if (strlen($tel) !== 11) {
+    http_response_code(400);
+    echo json_encode(['erro' => 'Telefone inválido.']);
+    exit;
+}
 
 // Busca o token no banco de dados
 $token = null;
 $stmt = $conexao->prepare("SELECT valor FROM config WHERE chave = ?");
-$chave = 'token_api_nome';
+$chave = 'token_nova_api';
 $stmt->bind_param("s", $chave);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -42,8 +47,7 @@ if (empty($token)) {
 }
 
 // Consulta à API externa
-$url = "https://api.dbconsultas.com/api/v1/{$token}/datalinknome/" . urlencode($nome);
-
+$url = "https://consultafacil.pro/api/phone/{$tel}?token={$token}";
 $ch = curl_init($url);
 curl_setopt_array($ch, [
     CURLOPT_RETURNTRANSFER => true,

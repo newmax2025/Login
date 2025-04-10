@@ -10,22 +10,22 @@ if (!isset($_SESSION['usuario_id'])) {
 }
 
 // Inclui a configuração do banco de dados
-require 'config.php';
+require '../config.php';
 
-// Lê e valida o email
+// Lê e valida o nome
 $input = json_decode(file_get_contents('php://input'), true);
-if (!isset($input['email'])) {
+if (!isset($input['nome'])) {
     http_response_code(400);
-    echo json_encode(['erro' => 'Email não informado.']);
+    echo json_encode(['erro' => 'Nome não informado.']);
     exit;
 }
 
-$email = trim($input['email']); // Limpa espaços em branco, mas mantém o email intacto
+$nome = trim($input['nome']);
 
 // Busca o token no banco de dados
 $token = null;
 $stmt = $conexao->prepare("SELECT valor FROM config WHERE chave = ?");
-$chave = 'token_nova_api';
+$chave = 'token_api_nome';
 $stmt->bind_param("s", $chave);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -42,7 +42,8 @@ if (empty($token)) {
 }
 
 // Consulta à API externa
-$url = "https://consultafacil.pro/api/email/{$email}?token={$token}";
+$url = "https://api.dbconsultas.com/api/v1/{$token}/datalinknome/" . urlencode($nome);
+
 $ch = curl_init($url);
 curl_setopt_array($ch, [
     CURLOPT_RETURNTRANSFER => true,
