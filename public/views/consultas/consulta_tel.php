@@ -4,32 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel de Consulta Email</title>
-    <link rel="stylesheet" href="../assets/css/consultaCPF.css?v=<?php echo md5_file('../assets/css/consultaCPF.css'); ?>">
+    <title>Painel de Consulta Telefone</title>
+    <link rel="stylesheet" href="../../assets/css/consultas.css?v=<?php echo md5_file('../../assets/css/consultas.css'); ?>">
     <script>
-        fetch("../backend/verifica_sessao.php")
-    .then(response => response.json())
-    .then(data => {
-        if (!data.autenticado) {
-            window.location.href = "login.php"; // Redireciona se não estiver autenticado
-        }
-    })
-    .catch(error => {
-        console.error("Erro ao verificar sessão:", error);
-        window.location.href = "login.php"; // Opcional: Redireciona em caso de erro
-    });
-
-        </script>
+        fetch("../../backend/verifica_sessao.php")
+            .then(response => response.json())
+            .then(data => {
+                if (!data.autenticado) {
+                    window.location.href = "../login.php";
+                }
+            })
+            .catch(error => {
+                console.error("Erro ao verificar sessão:", error);
+                window.location.href = "../login.php";
+            });
+    </script>
 </head>
 
 <body>
     <div class="container">
         <div class="logo-container">
-            <img class="logo" src="../assets/img/new_max_buscas.png" alt="Logo do Cliente">
+            <img class="logo" src="../../assets/img/new_max_buscas.png" alt="Logo do Cliente">
         </div>
-        <h2>Consulta Email</h2>
-        <input type="text" id="email" placeholder="Digite o Email">
-        <button id="consultarBtn" onclick="consultarEmail()" disabled>Consultar</button>
+        <h2>Consulta Telefone</h2>
+        <input type="text" id="tel" placeholder="Digite o Telefone" maxlength="15" oninput="formatTel(this)">
+        <button id="consultarBtn" onclick="consultarTel()" disabled>Consultar</button>
 
         <!-- Turnstile CAPTCHA -->
         <div class="cf-turnstile" id="captcha" data-sitekey="0x4AAAAAABCUfVi2iZQzzgzx" data-callback="onCaptchaSuccess">
@@ -51,8 +50,8 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-    <script src="../assets/js/consulta_email.js?v=<?php echo md5_file('../assets/js/consulta_email.js'); ?>"></script>
-    <script src="../assets/js/baixar_consultas.js?v=<?php echo md5_file('../assets/js/baixar_consultas.js'); ?>"></script>
+    <script src="../../assets/js/consulta_tel.js?v=<?php echo md5_file('../../assets/js/consulta_tel.js'); ?>"></script>
+    <script src="../../assets/js/baixar_consultas.js?v=<?php echo md5_file('../../assets/js/baixar_consultas.js'); ?>"></script>
 </body>
 
 </html>
