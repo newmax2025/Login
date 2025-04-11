@@ -21,6 +21,13 @@ color: gold;
 margin-left: 10px;
   align-self: center;
 }
+
+.carousel-wrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
 header {
   text-align: center;
   padding: 20px;
@@ -38,7 +45,7 @@ header img {
 .banner-grande {
 width: 100%;
 height: 40vh; /* Altura adaptável ao tamanho da tela */
-background-image: url('img/assine\ o\ plano\ premium\ .jpg'); /* Imagem inicial */
+background-image: url('img_banner/Banner_premium.jpg'); /* Imagem inicial */
 background-size: contain; /* Ajusta a imagem sem cortar, mantendo a proporção */
 background-position: center;
 transition: background-image 0.5s ease;
@@ -62,6 +69,19 @@ transition: opacity 4s ease-in-out;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
 }
+
+.carousel-container2 {
+ display: flex;
+  gap: 20px;
+  animation: scrollCarousel 10s linear infinite;
+}
+
+.carousel-container2 img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .carousel-container::-webkit-scrollbar { 
   display: none;  /* Chrome, Safari, Opera */
 }
@@ -508,5 +528,15 @@ footer .copy p {
     padding: 10px;
     max-height: 80vh;
     overflow-y: auto;
+  }
+}
+
+/* Animação de rolagem infinita */
+@keyframes scrollCarousel {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
