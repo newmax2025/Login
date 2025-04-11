@@ -1,4 +1,10 @@
-
+<?php
+session_start();
+if (!isset($_SESSION["usuario"])) {
+    header("Location: login.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -30,6 +36,7 @@
             document.getElementById("revendedor").innerHTML = `Revendedor: ${data.nome}`;
             document.getElementById("whatsapp").setAttribute("href", data.whatsapp);
             document.getElementById("plano").innerHTML = `Plano: ${data.plano}`;
+            document.getElementById("saldo").innerHTML = `Saldo: R$ ${parseFloat(data.saldo).toFixed(2)}`;
         })
         .catch(error => {
             console.error("Erro ao carregar os dados do usuário:", error);
@@ -49,10 +56,11 @@
     <div class="sidebar">
     <header>Menu</header>
     <ul>
-        <li><a href="#"><i class=""></i>Perfil 🔐</a></li>
+        <li><a href="usuario_pag.php"><i class=""></i>Perfil 🔐</a></li>
         <li><a href="#" id="revendedor"><i class=""></i>Revendedor: Carregando...</a></li>
         <li><a href="https://wa.me/" id="whatsapp"><i class="fa-brands fa-whatsapp"></i>Whatsapp</a></li>
         <li><a href="#" id="plano"><i class=""></i>Plano: Carregando...</a></li>
+        <li><a href="#" id="saldo"><i class=""></i>Saldo: Carregando...</a></li>
         <a href="../backend/logout.php">Sair</a>
     </ul>
     </div>
@@ -155,6 +163,10 @@
          <button class="botao">Sendo Adicionado</button>
            </div>
         </div>
+        <div class="card Gratuitos" onclick="mostrarBotao(this)">
+            <a href="consultas/consulta_foto_sp.php"><img src="../assets/img3D/Foto_sp.jpg" alt="pesquisa_por_nome"></a>
+                         <button class="botao">Sendo Adicionado</button>
+                           </div>
 
              </section>
     <section class="carousel" id="favoritos">
@@ -176,12 +188,6 @@
                     <img src="../assets/img3D/Foto_rj.jpg" alt="pesquisa_por_nome">
                      <button class="botao">Sendo Adicionado</button>
                        </div>
-
-                       <div class="card Gratuitos" onclick="mostrarBotao(this)">
-                        <div class="tarja">Manutenção</div> <!-- Tarja adicionada aqui -->
-                        <img src="../assets/img3D/Foto_sp.jpg" alt="pesquisa_por_nome">
-                         <button class="botao">Sendo Adicionado</button>
-                           </div>
     </div>
     </section>
     <section class="carousel2" id="favoritos">

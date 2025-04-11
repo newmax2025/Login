@@ -11,7 +11,7 @@ if (!isset($_SESSION["usuario"])) {
 
 $usuario = $_SESSION["usuario"];
 
-$sql = "SELECT c.usuario, c.plano, v.nome AS revendedor_nome, v.whatsapp AS revendedor_whatsapp 
+$sql = "SELECT c.usuario, c.plano, c.saldo, v.nome AS revendedor_nome, v.whatsapp AS revendedor_whatsapp 
         FROM clientes c
         LEFT JOIN vendedores v ON c.vendedor_id = v.id
         WHERE c.usuario = ?";
@@ -26,9 +26,11 @@ if ($result->num_rows > 0) {
 
     echo json_encode([
         "autenticado" => true,
+        "usuario" => $dados["usuario"],
         "nome" => $dados["revendedor_nome"] ?? "Não informado",
         "whatsapp" => !empty($dados["revendedor_whatsapp"]) ? "https://wa.me/".$dados["revendedor_whatsapp"] : "#",
-        "plano" => $dados["plano"]
+        "plano" => $dados["plano"],
+        "saldo" => number_format((float)$dados["saldo"], 2, '.', '')
     ]);
 } else {
     echo json_encode(["autenticado" => false]);
