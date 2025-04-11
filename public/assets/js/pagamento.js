@@ -119,7 +119,7 @@ async function depositar() {
 // Função existente para exibir resultado
 
 function exibirResultado(result) {
-  let output = `<div class="resultado-container" style="text-align: center;">
+  let output = `<div class="resultado-container" style="text-align: center, color:black;">
                       <div><strong>ID:</strong> ${result.id || "N/A"}</div>
                       <div><strong>Valor:</strong> R$ ${
                         parseFloat(result.amount).toFixed(2) || "N/A"
