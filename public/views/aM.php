@@ -102,16 +102,15 @@
 
     <section class="carousel" id="favoritos">
         <h2>Favoritos</h2>
-        <div class="carousel-container">
-             <div class="card grande"> <img src="../assets/img/CRLV_digital_horizontal.jpg" alt="CRLV DIGITAL Horizontal"> </div>
-            <div class="card grande"> <img src="../assets/img/Impressão_CNH_horizontal.jpg" alt="Impressão CNH Horizontal"> </div>
-            <div class="card grande"> <img src="../assets/img/consulta_SERASA_horizontal.jpg" alt="Consulta SERASA Horizontal"> </div>
-            <div class="card grande"> <img src="../assets/img/SCPC_horizontal.jpg" alt="SCPC Horizontal"> </div>
-            <div class="card grande"> <img src="../assets/img/CNH_completa_com_foto_horizontal.jpg" alt="CNH Completa com Foto Horizontal"> </div>
-            <div class="card grande"> <img src="../assets/img/consulta_radar_de_veiculos_horizontal.jpg" alt="CONSULTA RADAR DE VEÍCULOS Horizontal"> </div>
-            <div class="card grande"> <img src="../assets/img/consulta_detran_pro.jpg" alt="CONSULTA Detran Pro Horizontal"> </div>
-            <div class="card grande"> <img src="../assets/img/placa_plus_plano_premium_horinzontal.jpg" alt="Placa Plus Plano Premium Horinzontal"> </div>
-            <div class="card grande"> <img src="../assets/img/consulta_credi_link_horizontal.jpg" alt="Consulta  CREDI LINK Horizontal"> </div>
+        <div class="carousel-container2">
+             <div class="card grande"> <img src="../assets/img_banner/CRLV_digital_horizontal.jpg" alt="CRLV DIGITAL Horizontal"> </div>
+            <div class="card grande"> <img src="../assets/img_banner/consulta_SERASA_horizontal.jpg" alt="Consulta SERASA Horizontal"> </div>
+            <div class="card grande"> <img src="../assets/img_banner/SCPC_horizontal.jpg" alt="SCPC Horizontal"> </div>
+            <div class="card grande"> <img src="../assets/img_banner/CNH_completa_com_foto_horizontal.jpg" alt="CNH Completa com Foto Horizontal"> </div>
+            <div class="card grande"> <img src="../assets/img_banner/consulta_radar_de_veiculos_horizontal.jpg" alt="CONSULTA RADAR DE VEÍCULOS Horizontal"> </div>
+            <div class="card grande"> <img src="../assets/img_banner/consulta_detran pro_horizontal.jpg" alt="CONSULTA Detran Pro Horizontal"> </div>
+            <div class="card grande"> <img src="../assets/img_banner/placaplus_plano_premium_horinzontal.jpg" alt="Placa Plus Plano Premium Horinzontal"> </div>
+            <div class="card grande"> <img src="../assets/img_banner/consulta_credi_link_horizontal.jpg" alt="Consulta  CREDI LINK Horizontal"> </div>
             <!-- Adicione mais cards conforme necessário -->
         </div>
     </section>
@@ -125,11 +124,11 @@
                    <a href="consultas/consulta_cpf.php"> <img src="../assets/img3D/consulta_CPF_max.jpg" alt="consulta_CPF_max"></a>
                    </div>
                    <div class="card Gratuitos" onclick="mostrarBotao(this)">  
-                    <a href="consultas/consulta_tel.php"> <img src="../assets/img/consulta_telefone_(adicionando).jpg" alt="consulta_telefone"></a>
+                    <a href="consultas/consulta_tel.php"> <img src="../assets/img3D/buscar_telefone.jpg" alt="consulta_telefone"></a>
                     <button class="botao">Sendo Adicionado</button>
                 </div>
                   <div class="card Gratuitos" onclick="mostrarBotao(this)">  
-      <a href="consultas/consulta_email.php"><img src="../assets/img/consulta_EMAIL.jpg" alt="consulta_EMAIL"></a>
+      <a href="consultas/consulta_email.php"><img src="../assets/img3D/consulta_EMAIL.jpg" alt="consulta_EMAIL"></a>
         <button class="botao">Sendo Adicionado</button>
     </div>
     <div class="card Gratuitos" onclick="mostrarBotao(this)">  
@@ -141,29 +140,34 @@
         <button class="botao">Sendo Adicionado</button>
     </div>
 
-                 <div class="card Gratuitos" onclick="mostrarBotao(this)">
+                <div class="card Gratuitos" onclick="mostrarBotao(this)">
             <a href="consultas/consulta_nome.php"><img src="../assets/img3D/pesquisa_por_nome.jpg" alt="pesquisa_por_nome"></a>
              <button class="botao">Sendo Adicionado</button>
                </div>
 
     <div class="card Gratuitos" onclick="mostrarBotao(this)">  
-       <a href="consulta_cep.php"> <img src="../assets/img3D/buscar_cep.jpg" alt="buscar_cep"></a>
+       <a href="consultas/consulta_cep.php"> <img src="../assets/img3D/buscar_cep.jpg" alt="buscar_cep"></a>
         <button class="botao">Sendo Adicionado</button>
     </div>
 
     <div class="card Gratuitos" onclick="mostrarBotao(this)">  
-        <a href="consulta_pix.php"> <img src="../assets/img3D/desmascarar_pix_(adicionando).jpg" alt="desmascarar_pix_(adicionando)"></a>
+        <a href="consultas/consulta_pix.php"> <img src="../assets/img3D/desmascarar_pix_(adicionando).jpg" alt="desmascarar_pix_(adicionando)"></a>
          <button class="botao">Sendo Adicionado</button>
            </div>
         </div>
 
-        <!-- 2° FILEIRA DOS GRATUITOS -->
+             </section>
+    <section class="carousel" id="favoritos">
+          <h2>
+            Em Manutenção
+          </h2>
+        <!-- 1° FILEIRA MANUTENÇÃO -->
            <section class="carousel" id="treinos">
             <div class="carousel-container">
 
                <div class="card Gratuitos" onclick="mostrarBotao(this)">
                 <div class="tarja">Manutenção</div> <!-- Tarja adicionada aqui --> 
-                <img src="../assets/img3D/buscar_chassis.jpg" alt="pesquisa_por_nome">
+                <img src="../assets/img3D/busca_chassi.jpg" alt="pesquisa_por_nome">
                  <button class="botao">Sendo Adicionado</button>
                    </div>
 
@@ -239,7 +243,7 @@
     <div class="carousel-container">
         <div class="card pequeno"> 
             
-            <img src="../assets/img/CRLV_(Todos_os_estados).jpg" alt="CRLV_(Todos_os_estados)">
+            <img src="../assets/img3D/CRLV_(Todos_os_estados).jpg" alt="CRLV_(Todos_os_estados)">
 
         </div>
 
@@ -271,7 +275,7 @@
         </div>
         <div class="card pequeno"> 
             
-            <img src="../assets/img/consulta_receita_federal.jpg" alt="consulta_receita_federal">
+            <img src="../assets/img3D/consulta_receita_federal.jpg" alt="consulta_receita_federal">
            
                             </div>
 
@@ -291,7 +295,7 @@
                             </div>
                             <div class="card pequeno"> 
                                                
-                                <img src="../assets/img/bacen.jpg" alt="bacen">
+                                <img src="../assets/img3D/bacen.jpg" alt="bacen">
                               
                             </div>
         <!-- Adicione mais cards conforme necessário -->
@@ -463,12 +467,12 @@
                         </footer>
     </section>
     <script>
-        
               
  const banner = document.querySelector('.banner-grande');
   const imagens = [
-    '../assets/img/banner_new_MAX.png',
-    '../assets/img/assine_o_plano_premium2.png'
+    '../assets/img_banner/banner_principal1..jpg',
+    '../assets/img_banner/Banner_premium.jpg',
+    '../assets/img_banner/assine_o_plano_premium.jpg'
     
   ];
 
