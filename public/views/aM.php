@@ -118,7 +118,7 @@
 
         <!-- 1° FILEIRA DOS GRATUITOS -->
         <section class="carousel" id="favoritos">
-            <h2> Modulos Gratuitos</h2>
+            <h2> Módulos Gratuitos</h2>
             <div class="carousel-container">
              <div class="card Gratuitos">  
                    <a href="consultas/consulta_cpf.php"> <img src="../assets/img3D/consulta_CPF_max.jpg" alt="consulta_CPF_max"></a>
@@ -239,7 +239,7 @@
 
 
         <!-- 1° FILEIRA DOS ASSINANTES -->
-    <h2>Modulos Assinantes</h2>
+    <h2>Módulos Assinantes</h2>
     <div class="carousel-container">
         <div class="card pequeno"> 
             
