@@ -71,9 +71,12 @@ transition: opacity 4s ease-in-out;
 }
 
 .carousel-container2 {
- display: flex;
-  gap: 20px;
-  animation: scrollCarousel 10s linear infinite;
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 10px;
+  animation: scrollCarousel 15s linear infinite;
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
 }
 
 .carousel-container2 img {
