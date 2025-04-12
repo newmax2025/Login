@@ -37,7 +37,7 @@
         <p id="resultado"></p>
 
         <div id="dados" class="dados" style="display: none;"></div>
-        
+
         <!-- Botões de ação -->
         <div id="acoes" style="display: none; margin-top: 20px;">
             <button onclick="copiarDados()">Copiar Dados</button>

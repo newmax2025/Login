@@ -70,10 +70,10 @@ function consultarCPF() {
         if (!data || !data.FOTOB64) {
             throw new Error("Foto não encontrada para este CPF.");
         }
-    
+
         const dadosElement = document.getElementById("dados");
         const resultadoElement = document.getElementById("resultado");
-    
+
         const html = `
             <p><strong>CPF:</strong> ${data.CPF}</p>
             <p><strong>Origem:</strong> ${data.ORIGEM}</p>
@@ -81,7 +81,7 @@ function consultarCPF() {
             <p><strong>Foto:</strong></p>
             <img src="data:image/jpeg;base64,${data.FOTOB64}" alt="Foto do CPF" style="max-width:200px; border:1px solid #ccc; border-radius:8px;"></div>
         `;
-    
+
         dadosElement.innerHTML = html;
         dadosElement.style.display = "block";
         resultadoElement.innerText = `Foto encontrada para o CPF: ${data.CPF}`;

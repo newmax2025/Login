@@ -78,7 +78,7 @@ if (!isset($_SESSION["admin"])) {
         <button type="submit">Alterar Status</button>
       </form>
       <p id="mensagemStatus"></p>
-      
+
       <h3>Mudar Vendedor do Cliente</h3>
       <form id="formMudarVendedor">
         <label for="clienteNome">Nome do Cliente:</label>
@@ -112,7 +112,7 @@ if (!isset($_SESSION["admin"])) {
       <h3>Alterar Plano do Usuário</h3>
       <form id="formAlterarPlano">
         <input type="text" id="usuarioPlano" placeholder="Usuário" required />
-  
+
         <label for="novoPlano">Novo Plano:</label>
         <select id="novoPlano" required>
         <option value="Simples">Simples</option>

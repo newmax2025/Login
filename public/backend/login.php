@@ -63,10 +63,10 @@ function verificarLogin($conexao, $user, $pass, $tabela, $sessao, $redirect, $ve
     global $conexao; // Certifica-se de usar a conexão global
 
     // Se for clientes, buscamos o status; se for admin, não
-    $sql = $verificarStatus 
-        ? "SELECT id, senha, status FROM $tabela WHERE usuario = ?" 
+    $sql = $verificarStatus
+        ? "SELECT id, senha, status FROM $tabela WHERE usuario = ?"
         : "SELECT id, senha FROM $tabela WHERE usuario = ?";
-    
+
     $stmt = $conexao->prepare($sql);
     $stmt->bind_param("s", $user);
     $stmt->execute();

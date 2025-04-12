@@ -19,11 +19,11 @@ error_reporting(E_ALL);
             <input type="password" id="password" placeholder="Senha" required>
 
             <!-- Modificação para capturar a resposta do Turnstile -->
-            <div id="captcha" class="cf-turnstile" 
-            data-sitekey="0x4AAAAAABCUfVi2iZQzzgzx" 
+            <div id="captcha" class="cf-turnstile"
+            data-sitekey="0x4AAAAAABCUfVi2iZQzzgzx"
             data-callback="onCaptchaSuccess">
             </div>
-            
+
             <input type="hidden" id="captcha-response" name="cf-turnstile-response">
 
 

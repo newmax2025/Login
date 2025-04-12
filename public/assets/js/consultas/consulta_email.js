@@ -88,7 +88,7 @@ function consultarEmail() {
             ${exibirCampo("CPF", pessoa.cpf)}
             ${exibirCampo("RG", pessoa.rg)}
             ${exibirCampo("Nome da Mãe", pessoa.mother_name)}
-            
+
             <br><strong>Endereço:</strong><br>
             ${exibirCampo("Tipo", endereco.type)}
             ${exibirCampo("Rua", endereco.street)}
@@ -97,7 +97,7 @@ function consultarEmail() {
             ${exibirCampo("Bairro", endereco.neighborhood)}
             ${exibirCampo("Cidade", endereco.city)}
             ${exibirCampo("CEP", endereco.postal_code)}
-            
+
             <br><strong>Informações de Email:</strong><br>
             ${exibirCampo("Email", emailData.email)}
             ${exibirCampo("Prioridade", emailData.priority)}

@@ -13,7 +13,7 @@ if (!isset($_SESSION["usuario"])) {
     <title>Área de Membros</title>
     <link rel="stylesheet" href="../assets/css/aM.css?v=<?php echo md5_file('../assets/css/aM.css'); ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
         fetch("../backend/get_user_data.php")
@@ -28,7 +28,7 @@ if (!isset($_SESSION["usuario"])) {
 
             if (!data || !data.autenticado) {
                 console.warn("Usuário não autenticado, redirecionando...");
-                window.location.href = "login.php"; 
+                window.location.href = "login.php";
                 return;
             }
 
@@ -40,12 +40,12 @@ if (!isset($_SESSION["usuario"])) {
         })
         .catch(error => {
             console.error("Erro ao carregar os dados do usuário:", error);
-            window.location.href = "login.php"; 
+            window.location.href = "login.php";
         });
         });
 
     </script>
-        
+
 </head>
 <body>
     <input type="checkbox" id="check">
@@ -73,11 +73,11 @@ if (!isset($_SESSION["usuario"])) {
 <div class="overlay" id="popupOverlay">
     <div class="popup">
       <button class="close-btn" onclick="document.getElementById('popupOverlay').style.display='none'">Fechar</button>
-  
+
       <img src="../assets/img/new_max_buscas.png" alt="Logo NEW MAX BUSCAS" />
-  
+
       <h2>⚠️ Atenção!</h2>
-  
+
       <p>
         Todos os pagamentos devem ser realizados exclusivamente através do link oficial <strong>NewMaxBuscasPay</strong>.
       </p>
@@ -87,9 +87,9 @@ if (!isset($_SESSION["usuario"])) {
       <p>
         O cadastro será liberado automaticamente após a confirmação do pagamento pelo link oficial.
       </p>
-  
+
       <h3>🔒 Aviso Importante!</h3>
-  
+
       <p>
         Nenhum representante está autorizado a enviar login e senha para acesso ao painel de consultas.
       </p>
@@ -128,22 +128,22 @@ if (!isset($_SESSION["usuario"])) {
         <section class="carousel" id="favoritos">
             <h2> Módulos Gratuitos</h2>
             <div class="carousel-container">
-             <div class="card Gratuitos">  
+             <div class="card Gratuitos">
                    <a href="consultas/consulta_cpf.php"> <img src="../assets/img3D/consulta_CPF_max.jpg" alt="consulta_CPF_max"></a>
                    </div>
-                   <div class="card Gratuitos" onclick="mostrarBotao(this)">  
+                   <div class="card Gratuitos" onclick="mostrarBotao(this)">
                     <a href="consultas/consulta_tel.php"> <img src="../assets/img3D/buscar_telefone.jpg" alt="consulta_telefone"></a>
                     <button class="botao">Sendo Adicionado</button>
                 </div>
-                  <div class="card Gratuitos" onclick="mostrarBotao(this)">  
+                  <div class="card Gratuitos" onclick="mostrarBotao(this)">
       <a href="consultas/consulta_email.php"><img src="../assets/img3D/consulta_EMAIL.jpg" alt="consulta_EMAIL"></a>
         <button class="botao">Sendo Adicionado</button>
     </div>
-    <div class="card Gratuitos" onclick="mostrarBotao(this)">  
+    <div class="card Gratuitos" onclick="mostrarBotao(this)">
          <a href="consultas/consulta_cnpj.php"> <img src="../assets/img3D/consulta_CNPJ_max.jpg" alt="consulta_CNPJ"></a>
         <button class="botao">Sendo Adicionado</button>
     </div>
-    <div class="card Gratuitos" onclick="mostrarBotao(this)">  
+    <div class="card Gratuitos" onclick="mostrarBotao(this)">
         <a href="consultas/consulta_placa.php"> <img src="../assets/img3D/consulta_placa_(adicionando).jpg" alt="consulta_placa"></a>
         <button class="botao">Sendo Adicionado</button>
     </div>
@@ -153,12 +153,12 @@ if (!isset($_SESSION["usuario"])) {
              <button class="botao">Sendo Adicionado</button>
                </div>
 
-    <div class="card Gratuitos" onclick="mostrarBotao(this)">  
+    <div class="card Gratuitos" onclick="mostrarBotao(this)">
        <a href="consultas/consulta_cep.php"> <img src="../assets/img3D/buscar_cep.jpg" alt="buscar_cep"></a>
         <button class="botao">Sendo Adicionado</button>
     </div>
 
-    <div class="card Gratuitos" onclick="mostrarBotao(this)">  
+    <div class="card Gratuitos" onclick="mostrarBotao(this)">
         <a href="consultas/consulta_pix.php"> <img src="../assets/img3D/desmascarar_pix_(adicionando).jpg" alt="desmascarar_pix_(adicionando)"></a>
          <button class="botao">Sendo Adicionado</button>
            </div>
@@ -178,13 +178,13 @@ if (!isset($_SESSION["usuario"])) {
             <div class="carousel-container">
 
                <div class="card Gratuitos" onclick="mostrarBotao(this)">
-                <div class="tarja">Manutenção</div> <!-- Tarja adicionada aqui --> 
+                <div class="tarja">Manutenção</div> <!-- Tarja adicionada aqui -->
                 <img src="../assets/img3D/busca_chassi.jpg" alt="pesquisa_por_nome">
                  <button class="botao">Sendo Adicionado</button>
                    </div>
 
                    <div class="card Gratuitos" onclick="mostrarBotao(this)">
-                    <div class="tarja">Manutenção</div> <!-- Tarja adicionada aqui --> 
+                    <div class="tarja">Manutenção</div> <!-- Tarja adicionada aqui -->
                     <img src="../assets/img3D/Foto_rj.jpg" alt="pesquisa_por_nome">
                      <button class="botao">Sendo Adicionado</button>
                        </div>
@@ -192,7 +192,7 @@ if (!isset($_SESSION["usuario"])) {
     </section>
     <section class="carousel2" id="favoritos">
           <h2>
-            Exclusivos Premium 
+            Exclusivos Premium
             <span class="estrelas-animadas">
               <span>★</span>
               <span>★</span>
@@ -202,44 +202,44 @@ if (!isset($_SESSION["usuario"])) {
             </span>
           </h2>
         <div class="carousel-container">
-            <div class="card Premium"> 
-                
+            <div class="card Premium">
+
                 <img src="../assets/img3D/consulta_credi_link.jpg" alt="consulta_credi_link">
-    
+
             </div>
-            <div class="card Premium"> 
+            <div class="card Premium">
 
                  <img src="../assets/img3D/CNH_completa_com_foto.jpg" alt="CNH_completa_com_foto">
-                
+
             </div>
-            <div class="card Premium"> 
-                
+            <div class="card Premium">
+
                 <img src="../assets/img3D/placaplus_premium.jpg" alt="placa_plus_plano_premium">
-                
+
             </div>
-            <div class="card Premium"> 
-               
+            <div class="card Premium">
+
                 <img src="../assets/img3D/consulta_detran_pro.jpg" alt="consulta_detran_pro.jpg">
-                
+
             </div>
-            <div class="card Premium"> 
-               
+            <div class="card Premium">
+
                 <img src="../assets/img3D/despachante_condutor.jpg" alt="despachante_condutor">
-                
+
             </div>
-            <div class="card Premium"> 
-               
+            <div class="card Premium">
+
                 <img src="../assets/img3D/despachante_veicular.jpg" alt="despachante_veicular">
-                
-            </div> <div class="card Premium"> 
-               
+
+            </div> <div class="card Premium">
+
                 <img src="../assets/img3D/consulta_radar_de_veiculos.jpg" alt="consulta_radar_de_veiculos">
 
             </div>
             <!-- Adicione mais cards conforme necessário -->
         </div>
 
-            
+
     </section>
     <section class="carousel" id="favoritos">
 
@@ -247,62 +247,62 @@ if (!isset($_SESSION["usuario"])) {
         <!-- 1° FILEIRA DOS ASSINANTES -->
     <h2>Módulos Assinantes</h2>
     <div class="carousel-container">
-        <div class="card pequeno"> 
-            
+        <div class="card pequeno">
+
             <img src="../assets/img3D/CRLV_(Todos_os_estados).jpg" alt="CRLV_(Todos_os_estados)">
 
         </div>
 
-        <div class="card pequeno"> 
-            
+        <div class="card pequeno">
+
             <img src="../assets/img/consulta_SERASA.jpg" alt="consulta_SERASA.jpg">
-            
+
         </div>
 
-        <div class="card pequeno"> 
-           
+        <div class="card pequeno">
+
             <img src="../assets/img/scpc.jpg" alt="SCPC">
-            
+
         </div>
 
-        <div class="card pequeno"> 
-            
+        <div class="card pequeno">
+
             <img src="../assets/img/CNH_simples.jpg" alt="CNH_simples">
-            
+
         </div>
-        <div class="card pequeno"> 
-            
+        <div class="card pequeno">
+
             <img src="../assets/img/consulta_veicular_max.jpg" alt="consulta_veicular_max">
         </div>
-        <div class="card pequeno"> 
-               
+        <div class="card pequeno">
+
             <img src="../assets/img/consulta_frota_veicular.jpg" alt="consulta_frota_veicular">
-          
+
         </div>
-        <div class="card pequeno"> 
-            
+        <div class="card pequeno">
+
             <img src="../assets/img3D/consulta_receita_federal.jpg" alt="consulta_receita_federal">
-           
+
                             </div>
 
-                            <div class="card pequeno"> 
-   
+                            <div class="card pequeno">
+
                             <img src="../assets/img/consulta_cadsus.jpg" alt="consulta_cadsus">
                           </div>
-                            <div class="card pequeno"> 
-    
+                            <div class="card pequeno">
+
                               <img src="../assets/img/consulta_tracker.jpg" alt="consulta_tracker">
-   
+
                                </div>
-                            <div class="card pequeno"> 
-                                
+                            <div class="card pequeno">
+
                                 <img src="../assets/img/consultar_FGTS.jpg" alt="consultar_FGTS">
-                               
+
                             </div>
-                            <div class="card pequeno"> 
-                                               
+                            <div class="card pequeno">
+
                                 <img src="../assets/img3D/bacen.jpg" alt="bacen">
-                              
+
                             </div>
         <!-- Adicione mais cards conforme necessário -->
     </div>
@@ -311,64 +311,64 @@ if (!isset($_SESSION["usuario"])) {
     <!-- 2° FILEIRA DOS ASSINANTES -->
         <section class="carousel" id="treinos">
         <div class="carousel-container">
-            <div class="card pequeno"> 
-                        
+            <div class="card pequeno">
+
                 <img src="../assets/img/gerar_score.jpg" alt="gerar_score">
-               
+
             </div>
 
-            <div class="card pequeno"> 
-             
+            <div class="card pequeno">
+
                 <img src="../assets/img/gerador_de_aniversario.jpg" alt="gerador_de_aniversario">
-               
+
             </div>
-            <div class="card pequeno"> 
-              
+            <div class="card pequeno">
+
                 <img src="../assets/img/consulta_INSS.jpg" alt="consulta_INSS">
-                
+
             </div>
 
-            <div class="card Gratuitos" onclick="mostrarBotao(this)">  
+            <div class="card Gratuitos" onclick="mostrarBotao(this)">
                 <img src="../assets/img/consulta_funcionarios.jpg" alt="consulta_funcionarios">
                 <button class="botao">Sendo Adicionado</button>
             </div>
 
-            <div class="card pequeno"> 
-                
+            <div class="card pequeno">
+
                 <img src="../assets/img/consulta_tracker_avançado.jpg" alt="consulta_tracker_avançado">
-                
+
             </div>
-            <div class="card pequeno"> 
-                
+            <div class="card pequeno">
+
                 <img src="../assets/img/consulta_score.jpg" alt="consulta_score">
-                
+
             </div>
-            <div class="card pequeno"> 
-                
+            <div class="card pequeno">
+
                 <img src="../assets/img/consulta_datecorp.jpg" alt="consulta_datecorp">
-                
+
             </div>
-            <div class="card pequeno"> 
-               
+            <div class="card pequeno">
+
                 <img src="../assets/img/consulta_search_data.jpg" alt="consulta_search_dataa">
-              
+
             </div>
-            <div class="card pequeno"> 
-               
+            <div class="card pequeno">
+
                 <img src="../assets/img/consulta_divida.jpg" alt="consulta_divida">
-               
+
             </div>
-            <div class="card pequeno"> 
-               
+            <div class="card pequeno">
+
                 <img src="../assets/img/consulta_cadin.jpg" alt="consulta_cadin">
-                
+
             </div>
-            <div class="card pequeno"> 
-              
+            <div class="card pequeno">
+
                 <img src="../assets/img/consulta_empresarial.jpg" alt="consulta_empresarial">
-              
+
             </div>
-            
+
             <!-- Adicione mais cards conforme necessário -->
         </div>
 
@@ -377,61 +377,61 @@ if (!isset($_SESSION["usuario"])) {
         <section class="carousel" id="treinos">
             <div class="carousel-container">
 
-                <div class="card pequeno"> 
-                                     
+                <div class="card pequeno">
+
                     <img src="../assets/img/buscar_mandato.jpg" alt="buscar_mandato">
-                   
+
                 </div>
-                <div class="card pequeno"> 
-                  
+                <div class="card pequeno">
+
                     <img src="../assets/img/imprimir_boletim_de_ocorrência.jpg" alt="imprimir_boletim_de_ocorrência">
-                    
+
                 </div>
-                <div class="card pequeno"> 
-                    
+                <div class="card pequeno">
+
                     <img src="../assets/img/listagem_novos_aposentados.jpg" alt="listagem_novos_aposentados">
-                   
+
                 </div>
-                <div class="card pequeno"> 
-                  
+                <div class="card pequeno">
+
                     <img src="../assets/img/CRV_+código.jpg" alt="CRV_+código">
-                   
+
                 </div>
 
-                    <div class="card pequeno"> 
-                        
+                    <div class="card pequeno">
+
                         <img src="../assets/img/buscar_servidor_publico.jpg" alt="buscar_servidor_publico">
-                       
+
                     </div>
-                    <div class="card pequeno"> 
-                      
+                    <div class="card pequeno">
+
                         <img src="../assets/img/consultar_empréstimo.jpg" alt="consultar_empréstimo">
-                       
+
                     </div>
-                        <div class="card pequeno"> 
-                       
+                        <div class="card pequeno">
+
                             <img src="../assets/img/obito.jpg" alt="obito">
                             </div>
-                            
-                            <div class="card pequeno"> 
-                               
+
+                            <div class="card pequeno">
+
                                 <img src="../assets/img/buscar_foto.jpg" alt="buscar_foto">
-                              
+
                             </div>
-                            <div class="card pequeno"> 
-                               
+                            <div class="card pequeno">
+
                                 <img src="../assets/img/buscar_processo.jpg" alt="buscar_processo">
-                              
+
                             </div>
-                            <div class="card pequeno"> 
-                                
+                            <div class="card pequeno">
+
                                 <img src="../assets/img/buscar_assinatura.jpg" alt="buscar_assinatura">
-                               
+
                             </div>
-                 <div class="card pequeno"> 
-                                       
+                 <div class="card pequeno">
+
                                         <img src="../assets/img/gerador_de_rendas.jpg" alt="gerador_de_rendas">
-                                        
+
                                         </div>
                                     </div>
 
@@ -440,22 +440,22 @@ if (!isset($_SESSION["usuario"])) {
                         <section class="carousel" id="treinos">
                             <div class="carousel-container">
 
-                                            <div class="card pequeno"> 
-                                       
+                                            <div class="card pequeno">
+
                                                 <img src="../assets/img/consulta_pai_e_mãe.jpg" alt="consulta_pai_e_mãe">
-                                              
+
                                             </div>
 
-                                            <div class="card pequeno"> 
-                                       
+                                            <div class="card pequeno">
+
                                                 <img src="../assets/img/buscar_parentes.jpg" alt="buscar_parentes">
-                                              
+
                                             </div>
 
-                                            <div class="card pequeno"> 
-                                       
+                                            <div class="card pequeno">
+
                                                 <img src="../assets/img/motorista_de_99_uber.jpg" alt="/motorista_de_99_uber">
-                                              
+
                                             </div>
                                             <!-- Adicione mais cards conforme necessário -->
                                         </div>
@@ -473,13 +473,13 @@ if (!isset($_SESSION["usuario"])) {
                         </footer>
     </section>
     <script>
-              
+
  const banner = document.querySelector('.banner-grande');
   const imagens = [
     '../assets/img_banner/banner_principal1..jpg',
     '../assets/img_banner/Banner_premium.jpg',
     '../assets/img_banner/assine_o_plano_premium.jpg'
-    
+
   ];
 
 
@@ -519,7 +519,7 @@ if (!isset($_SESSION["usuario"])) {
                 container.scrollLeft = scrollLeft - walk;
             });
 
-  
+
          // Função para abrir o modal
          function abrirModal() {
             document.getElementById("modal").style.display = "flex";

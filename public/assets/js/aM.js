@@ -46,7 +46,9 @@ document.querySelectorAll('.carousel-container').forEach(container => {
         isDown = false;
     });
 
-   document.addEventListener("DOMContentLoaded", function () {
+});
+
+document.addEventListener("DOMContentLoaded", function () {
   const container = document.getElementById("carousel-container2");
   if (!container) return;
 

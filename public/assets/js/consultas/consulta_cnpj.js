@@ -97,7 +97,7 @@ function consultarCNPJ() {
         ${exibirCampo("Natureza Jurídica", empresa.legal_nature)}
         ${exibirCampo("Capital Social", `R$ ${empresa.capital}`)}
         ${exibirCampo("Telefone", contato.phone)}
-        
+
         <br><strong>Endereço:</strong><br>
         ${exibirCampo("Rua", endereco.street)}
         ${exibirCampo("Número", endereco.number)}
